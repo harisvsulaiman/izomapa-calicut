@@ -1,4 +1,4 @@
-success 2026-11-16T13:38:51Z run=43876733067
+success 2026-11-16T14:09:01Z run=43881466774
 == prep.log
 /home/runner/work/izomapa-calicut/izomapa-calicut/prep.py:103: DeprecationWarning: The 'shapely.ops.transform()' function is deprecated. Use 'shapely.transform()' or 'shapely.transform_coordseq()' instead. See https://shapely.readthedocs.io/en/latest/manual.html#shapely.ops.transform for more details.
   t['geom'] = t.geometry.map(lambda g: transform(lambda x, y, z=None: to_local(x, y), shapely.from_wkb(g)))
@@ -17,10 +17,10 @@ success 2026-11-16T13:38:51Z run=43876733067
 terén 461 x 461 převýšení 27.6 m
 mostů 5 z toho lávek 2 nájezdů 10
 dominant napárováno na budovy 0
-budov 866 z toho od sousedů 36 komínů 630
-{'bench': 0, 'lamp': 2078, 'bin': 0, 'recycling': 0, 'shelter': 11, 'tower': 0, 'pole': 0, 'wheelie': 422} aut 701 {'fence': 0, 'hedge': 0, 'wall': 0, 'power': 0, 'lift': 0}
-stromů nad vozovkou odstraněno 211
-stromů 10377
+budov 10073 z toho od sousedů 389 komínů 8573
+{'bench': 0, 'lamp': 1955, 'bin': 0, 'recycling': 0, 'shelter': 11, 'tower': 0, 'pole': 0, 'wheelie': 2143} aut 701 {'fence': 0, 'hedge': 0, 'wall': 0, 'power': 0, 'lift': 0, 'pipe': 0}
+stromů nad vozovkou odstraněno 153
+stromů 8263
 skrytých stromů na hřbitovech 0
 hrobů 0 soch 0
 textura summer
@@ -35,65 +35,65 @@ hotovo
 == render.log
 180
 HOTOVO 0,1
-rendered in 41 s
+rendered in 72 s
 == render_detail.log
-dlaždice 12,6 0.25 s
-dlaždice 13,6 0.205 s
-dlaždice 14,6 0.175 s
-dlaždice 15,6 0.176 s
-dlaždice 16,6 0.173 s
-dlaždice 17,6 0.134 s
-dlaždice 0,7 0.177 s
-dlaždice 1,7 0.187 s
-dlaždice 2,7 0.175 s
-dlaždice 3,7 0.172 s
-dlaždice 4,7 0.173 s
-dlaždice 5,7 0.183 s
-dlaždice 6,7 0.21 s
-dlaždice 7,7 0.236 s
-dlaždice 8,7 0.231 s
-dlaždice 9,7 0.254 s
-dlaždice 10,7 0.241 s
-dlaždice 11,7 0.217 s
-dlaždice 12,7 0.184 s
-dlaždice 13,7 0.171 s
-dlaždice 14,7 0.172 s
-dlaždice 15,7 0.171 s
-dlaždice 16,7 0.178 s
-dlaždice 17,7 0.137 s
-dlaždice 0,8 0.181 s
-dlaždice 1,8 0.173 s
-dlaždice 2,8 0.173 s
-dlaždice 3,8 0.169 s
-dlaždice 4,8 0.185 s
-dlaždice 5,8 0.171 s
-dlaždice 6,8 0.187 s
-dlaždice 7,8 0.187 s
-dlaždice 8,8 0.213 s
-dlaždice 9,8 0.214 s
-dlaždice 10,8 0.184 s
-dlaždice 11,8 0.172 s
-dlaždice 12,8 0.172 s
-dlaždice 13,8 0.169 s
-dlaždice 14,8 0.173 s
-dlaždice 15,8 0.184 s
-dlaždice 16,8 0.173 s
-dlaždice 17,8 0.136 s
-dlaždice 0,9 0.173 s
-dlaždice 1,9 0.181 s
-dlaždice 2,9 0.178 s
-dlaždice 3,9 0.184 s
-dlaždice 4,9 0.173 s
-dlaždice 5,9 0.187 s
-dlaždice 6,9 0.177 s
-dlaždice 7,9 0.176 s
-dlaždice 8,9 0.175 s
-dlaždice 9,9 0.173 s
-dlaždice 10,9 0.171 s
-dlaždice 11,9 0.173 s
-dlaždice 12,9 0.172 s
-dlaždice 13,9 0.173 s
-dlaždice 14,9 0.172 s
-dlaždice 15,9 0.17 s
-dlaždice 16,9 0.171 s
-dlaždice 17,9 0.135 s
+dlaždice 12,6 0.516 s
+dlaždice 13,6 0.362 s
+dlaždice 14,6 0.285 s
+dlaždice 15,6 0.274 s
+dlaždice 16,6 0.276 s
+dlaždice 17,6 0.217 s
+dlaždice 0,7 0.274 s
+dlaždice 1,7 0.272 s
+dlaždice 2,7 0.28 s
+dlaždice 3,7 0.275 s
+dlaždice 4,7 0.27 s
+dlaždice 5,7 0.318 s
+dlaždice 6,7 0.404 s
+dlaždice 7,7 0.513 s
+dlaždice 8,7 0.541 s
+dlaždice 9,7 0.501 s
+dlaždice 10,7 0.485 s
+dlaždice 11,7 0.372 s
+dlaždice 12,7 0.299 s
+dlaždice 13,7 0.272 s
+dlaždice 14,7 0.273 s
+dlaždice 15,7 0.277 s
+dlaždice 16,7 0.272 s
+dlaždice 17,7 0.216 s
+dlaždice 0,8 0.271 s
+dlaždice 1,8 0.27 s
+dlaždice 2,8 0.27 s
+dlaždice 3,8 0.27 s
+dlaždice 4,8 0.272 s
+dlaždice 5,8 0.276 s
+dlaždice 6,8 0.281 s
+dlaždice 7,8 0.311 s
+dlaždice 8,8 0.432 s
+dlaždice 9,8 0.394 s
+dlaždice 10,8 0.293 s
+dlaždice 11,8 0.273 s
+dlaždice 12,8 0.276 s
+dlaždice 13,8 0.273 s
+dlaždice 14,8 0.274 s
+dlaždice 15,8 0.27 s
+dlaždice 16,8 0.286 s
+dlaždice 17,8 0.214 s
+dlaždice 0,9 0.275 s
+dlaždice 1,9 0.27 s
+dlaždice 2,9 0.276 s
+dlaždice 3,9 0.272 s
+dlaždice 4,9 0.276 s
+dlaždice 5,9 0.275 s
+dlaždice 6,9 0.278 s
+dlaždice 7,9 0.273 s
+dlaždice 8,9 0.274 s
+dlaždice 9,9 0.269 s
+dlaždice 10,9 0.28 s
+dlaždice 11,9 0.271 s
+dlaždice 12,9 0.271 s
+dlaždice 13,9 0.278 s
+dlaždice 14,9 0.273 s
+dlaždice 15,9 0.278 s
+dlaždice 16,9 0.273 s
+dlaždice 17,9 0.217 s
