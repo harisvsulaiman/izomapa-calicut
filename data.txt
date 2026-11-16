@@ -1,17 +1,19 @@
-cancelled 2026-11-16T14:01:41Z run=43880911356
+success 2026-11-16T14:05:20Z run=43881466774
 == data.log
 terrain -2..63 m, zero 10.0, floor -42
-building 71892 29s
-segment 5905 9s
+building 71892 34s
+segment 5905 10s
 land_use 394 3s
-water 139 2s
-land_cover 29 9s
-infrastructure 508 1s
-land 36 3s
-address 0 4s
+water 139 3s
+land_cover 29 12s
+infrastructure 508 2s
+land 36 4s
+address 0 5s
 čtverec (0, -1) -> data_c0_-1
 čtverec (0, 0) -> data
 čtverec (0, 1) -> data_c0_1
 čtverec (1, 0) -> data_c1_0
 míst 7955
 částí obcí 8
+dětská 10 workout 0 prvků 0
+{'komin': 0, 'vez': 0, 'stozar': 2, 'nadrz': 2, 'rozhledna': 0} potrubí 0
