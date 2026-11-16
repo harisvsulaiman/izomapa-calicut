@@ -254,10 +254,10 @@ dialog.help ol.vd-list { margin: 0; padding-left: 22px; } ol.vd-list li { margin
 }
 </style>
 
-<div id="map" aria-label="Izometrická pixel-art mapa {{MESTO}}"><div id="osd"></div><div id="pluginLayers"></div><canvas id="fx"></canvas></div>
-<div class="loading" id="loading">Načítám mapu…</div>
+<div id="map" aria-label="Isometric pixel-art map of {{MESTO}}"><div id="osd"></div><div id="pluginLayers"></div><canvas id="fx"></canvas></div>
+<div class="loading" id="loading">Loading map…</div>
 
-<button class="fold" id="fold" type="button" aria-controls="panel" aria-expanded="true" aria-label="Zasunout panel" title="Zasunout panel">‹</button>
+<button class="fold" id="fold" type="button" aria-controls="panel" aria-expanded="true" aria-label="Hide panel" title="Hide panel">‹</button>
 <div class="izomapa-slot-tabs" id="pluginTabsSlot"></div>
 <aside class="panel" id="panel">
   <div class="head">
@@ -266,138 +266,138 @@ dialog.help ol.vd-list { margin: 0; padding-left: 22px; } ol.vd-list li { margin
       <p class="sub" id="sub">{{PODTITUL}}</p>
     </div>
     <div class="head-btns">
-      <button class="px-btn help-btn" id="help" type="button" aria-label="Nápověda a o projektu" title="Nápověda a o projektu">?</button>
+      <button class="px-btn help-btn" id="help" type="button" aria-label="Help and about" title="Help and about">?</button>
       <button class="px-btn menu-btn" id="menu" type="button" aria-expanded="true">Menu</button>
     </div>
   </div>
 
   <div class="search">
-    <label class="label" for="q">Hledat</label>
-    <input id="q" type="search" placeholder="Ulice, adresa nebo místo" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" enterkeyhint="search">
+    <label class="label" for="q">Search</label>
+    <input id="q" type="search" placeholder="Street, building or place" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" enterkeyhint="search">
     <ul class="results" id="results"></ul>
   </div>
 
   <div>
-    <p class="label">Zobrazit</p>
+    <p class="label">Show</p>
     <div class="chips2" id="wipSel">
-      <button class="px-btn" type="button" data-wip="0">Hotovo</button>
-      <button class="px-btn" type="button" data-wip="1">Vč. rozpracovaného</button>
+      <button class="px-btn" type="button" data-wip="0">Finished</button>
+      <button class="px-btn" type="button" data-wip="1">Incl. work in progress</button>
     </div>
   </div>
 
   <div>
-    <p class="label">Roční období</p>
+    <p class="label">Season</p>
     <div class="chips4" id="seasons">
-      <button class="px-btn" type="button" data-s="spring">Jaro</button>
-      <button class="px-btn" type="button" data-s="summer">Léto</button>
-      <button class="px-btn" type="button" data-s="autumn">Podzim</button>
-      <button class="px-btn" type="button" data-s="winter">Zima</button>
+      <button class="px-btn" type="button" data-s="spring">Spring</button>
+      <button class="px-btn" type="button" data-s="summer">Summer</button>
+      <button class="px-btn" type="button" data-s="autumn">Autumn</button>
+      <button class="px-btn" type="button" data-s="winter">Winter</button>
     </div>
   </div>
 
   <div class="daynight">
-    <label class="label" for="night">Denní doba</label>
+    <label class="label" for="night">Time of day</label>
     <input id="night" type="range" min="0" max="100" value="0">
-    <div class="ends"><span>Den</span><span>Zlatá hodinka</span><span>Noc</span></div>
-    <label class="realtime"><input type="checkbox" id="realTime"> Podle skutečného času</label>
+    <div class="ends"><span>Day</span><span>Golden hour</span><span>Night</span></div>
+    <label class="realtime"><input type="checkbox" id="realTime"> Follow real time</label>
   </div>
 
   <div>
-    <p class="label">Počasí</p>
+    <p class="label">Weather</p>
     <div class="chips4" id="weather">
-      <button class="px-btn" type="button" data-w="clear">Jasno</button>
-      <button class="px-btn" type="button" data-w="rain">Déšť</button>
-      <button class="px-btn" type="button" data-w="snow">Sníh</button>
-      <button class="px-btn" type="button" data-w="fog">Mlha</button>
+      <button class="px-btn" type="button" data-w="clear">Clear</button>
+      <button class="px-btn" type="button" data-w="rain">Rain</button>
+      <button class="px-btn" type="button" data-w="snow">Snow</button>
+      <button class="px-btn" type="button" data-w="fog">Fog</button>
     </div>
-    <label class="realtime" id="realWeatherRow" hidden><input type="checkbox" id="realWeather"> Podle skutečného počasí</label>
+    <label class="realtime" id="realWeatherRow" hidden><input type="checkbox" id="realWeather"> Follow real weather</label>
   </div>
 
   <div>
-    <p class="label">Vrstvy</p>
+    <p class="label">Layers</p>
     <div class="layers">
-      <label><input type="checkbox" id="l-labels" checked> Popisky</label>
-      <label><input type="checkbox" id="l-traffic" checked> Doprava</label>
-      <label><input type="checkbox" id="l-people" checked> Lidé</label>
-      <label><input type="checkbox" id="l-smoke" checked> Kouř z&nbsp;komínů</label>
-      <label hidden><input type="checkbox" id="l-xmas"> Vánoční výzdoba</label>
-      <label><input type="checkbox" id="l-hover" checked> Zvýraznit budovy</label>
+      <label><input type="checkbox" id="l-labels" checked> Labels</label>
+      <label><input type="checkbox" id="l-traffic" checked> Traffic</label>
+      <label><input type="checkbox" id="l-people" checked> People</label>
+      <label><input type="checkbox" id="l-smoke" checked> Chimney smoke</label>
+      <label hidden><input type="checkbox" id="l-xmas"> Christmas decorations</label>
+      <label><input type="checkbox" id="l-hover" checked> Highlight buildings</label>
     </div>
   </div>
 
   <details id="placesBox">
-    <summary>Místa a&nbsp;příběhy</summary>
+    <summary>Places and stories</summary>
     <ul class="places" id="places"></ul>
   </details>
 
   <details class="about">
-    <summary>O&nbsp;projektu</summary>
-    <p>Mapa vznikla nástrojem <a href="https://github.com/adamklatovsky/izomapa" target="_blank" rel="noopener">izomapa</a> z&nbsp;otevřených dat. Budovy, adresy, silnice, voda a&nbsp;zeleň pochází z&nbsp;Overture Maps (OpenStreetMap), terén z&nbsp;modelu Terrarium, výšky budov, les a&nbsp;pole z&nbsp;dat ČÚZK. Lampy podél ulic, zaparkovaná auta, popelnice, hroby a&nbsp;část stromů v&nbsp;zahradách jsou doplněné podle typu území, nejde o&nbsp;přesné polohy.</p>
-    <p><strong>Co je izometrie?</strong><br>Pohled shora a&nbsp;šikmo bez perspektivy: čáry se do dálky nesbíhají a&nbsp;věci si drží svou skutečnou velikost bez ohledu na to, jak daleko jsou od pozorovatele. Dům na kraji mapy je stejně velký jako ten uprostřed. Tenhle styl si pamatuje každý, kdo koncem 90. let trávil hodiny u&nbsp;SimCity a&nbsp;podobných budovatelských her.</p>
+    <summary>About</summary>
+    <p>This map was made with <a href="https://github.com/adamklatovsky/izomapa" target="_blank" rel="noopener">izomapa</a> from open data. Buildings, roads, water and greenery come from Overture Maps (OpenStreetMap, plus machine-detected building footprints), terrain from the Terrarium model. Building heights are estimates. Street lamps, parked cars, bins and many garden trees are filled in by land-use type, not at their exact positions.</p>
+    <p><strong>What is isometric?</strong><br>A view from above at an angle, without perspective: lines don't converge into the distance and things keep their real size however far away they are. A house at the edge of the map is as big as one in the middle. Anyone who spent hours with SimCity and similar city builders in the late 90s will know the style.</p>
   </details>
 </aside>
 
-<div class="follow" id="follow" hidden aria-live="polite"><span id="followTxt"></span><button class="px-btn" id="followStop" type="button" aria-label="Přestat sledovat">×</button></div>
+<div class="follow" id="follow" hidden aria-live="polite"><span id="followTxt"></span><button class="px-btn" id="followStop" type="button" aria-label="Stop following">×</button></div>
 <section class="card" id="card" hidden aria-live="polite">
   <div class="grab" id="grab" aria-hidden="true"></div>
-  <button class="px-btn close" id="cardClose" type="button" aria-label="Zavřít">×</button>
+  <button class="px-btn close" id="cardClose" type="button" aria-label="Close">×</button>
   <h2 id="cardTitle"></h2>
   <p id="cardText" hidden></p>
   <dl id="cardDl"></dl>
   <div class="links" id="cardLinks"></div>
   <details class="report" id="report" hidden>
-    <summary>Nahlásit nepřesnost</summary>
+    <summary>Report an inaccuracy</summary>
     <form id="reportForm">
-      <textarea id="repNote" rows="3" maxlength="500" required placeholder="Co tu nesedí se skutečností?"></textarea>
-      <button class="px-btn" type="submit">Odeslat</button>
+      <textarea id="repNote" rows="3" maxlength="500" required placeholder="What doesn't match reality here?"></textarea>
+      <button class="px-btn" type="submit">Send</button>
       <span id="repMsg" role="status"></span>
     </form>
   </details>
 </section>
 
 <div class="minimap" id="minimap">
-  <canvas id="mini" width="220" height="128" aria-label="Minimapa: kliknutím přesunete pohled"></canvas>
+  <canvas id="mini" width="220" height="128" aria-label="Minimap: click to move the view"></canvas>
   <div class="scale" id="scale">1&nbsp;px = 20&nbsp;cm</div>
 </div>
 <div class="controls">
-  <button class="px-btn" id="zin" type="button" title="Přiblížit">+</button>
-  <button class="px-btn" id="zout" type="button" title="Oddálit">−</button>
-  <button class="px-btn" id="home" type="button" title="Celá mapa">⌂</button>
-  <button class="px-btn" id="share" type="button" title="Sdílet tento pohled" aria-label="Sdílet tento pohled"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v11M8 7l4-4 4 4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"/><path d="M8 10H5v11h14V10h-3" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"/></svg></button>
+  <button class="px-btn" id="zin" type="button" title="Zoom in">+</button>
+  <button class="px-btn" id="zout" type="button" title="Zoom out">−</button>
+  <button class="px-btn" id="home" type="button" title="Whole map">⌂</button>
+  <button class="px-btn" id="share" type="button" title="Share this view" aria-label="Share this view"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v11M8 7l4-4 4 4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"/><path d="M8 10H5v11h14V10h-3" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"/></svg></button>
 </div>
 <div class="toast" id="toast" role="status" hidden></div>
 <dialog class="help" id="helpDlg" aria-labelledby="helpTitle">
-  <button class="px-btn close" id="helpClose" type="button" aria-label="Zavřít">×</button>
-  <h2 id="helpTitle">O&nbsp;mapě</h2>
-  <p><button class="px-btn app-btn" id="plochaBtn" type="button">📱 Přidat na plochu</button></p>
+  <button class="px-btn close" id="helpClose" type="button" aria-label="Close">×</button>
+  <h2 id="helpTitle">About the map</h2>
+  <p><button class="px-btn app-btn" id="plochaBtn" type="button">📱 Add to home screen</button></p>
   <p>{{POPIS}}</p>
-  <h3>Ovládání</h3>
+  <h3>Controls</h3>
   <ul>
-    <li><b>Posun a&nbsp;přiblížení:</b> tažení myší nebo prstem, kolečko nebo dva prsty. Dvojklik přiblíží.</li>
-    <li><b>Budova:</b> klikněte na ni a&nbsp;ukáže se název, adresa a&nbsp;odkaz na Mapy.cz.</li>
-    <li><b>Roční období, denní doba a&nbsp;počasí</b> se přepínají v&nbsp;menu. Na mobilu jsou roční období a&nbsp;denní doba i&nbsp;ve spodní liště.</li>
-    <li><b>Hledání</b> zná ulice, adresy, budovy i&nbsp;zajímavá místa.</li>
-    <li><b>Sdílet</b> <span class="ico-inline"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v11M8 7l4-4 4 4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"/><path d="M8 10H5v11h14V10h-3" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"/></svg></span> zkopíruje odkaz přesně na to, co právě vidíte, včetně ročního období a&nbsp;denní doby.</li>
+    <li><b>Pan and zoom:</b> drag with the mouse or a finger, scroll wheel or two fingers. Double-click zooms in.</li>
+    <li><b>Building:</b> click it to see its name and type, with links to OpenStreetMap and satellite imagery.</li>
+    <li><b>Season, time of day and weather</b> are in the menu. On mobile, season and time of day are also in the bottom bar.</li>
+    <li><b>Search</b> knows streets, buildings and places.</li>
+    <li><b>Share</b> <span class="ico-inline"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v11M8 7l4-4 4 4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"/><path d="M8 10H5v11h14V10h-3" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"/></svg></span> copies a link to exactly what you see, including season and time of day.</li>
   </ul>
-  <p class="muted">Vytvořeno nástrojem <a href="https://github.com/adamklatovsky/izomapa" target="_blank" rel="noopener">izomapa</a> od <a href="https://www.adamklatovsky.cz/" target="_blank" rel="noopener">Adama Klatovského</a> (původní mapa: <a href="https://izomapa.fun" target="_blank" rel="noopener">izometrický Liberec</a>).<br>
-  Mapová data © přispěvatelé <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> (ODbL) a&nbsp;Overture Maps, terén Terrarium (AWS Open Data), výšky budov a&nbsp;stromů, ortofoto a&nbsp;ZABAGED{{RUIAN_ZDROJ}} © <a href="https://geoportal.cuzk.cz/" target="_blank" rel="noopener">ČÚZK</a> (CC BY 4.0){{MHD_ZDROJ}}{{VITR_ZDROJ}}{{LETADLA_ZDROJ}}{{DOPRAVA_ZDROJ}}.</p>
+  <p class="muted">Made with <a href="https://github.com/adamklatovsky/izomapa" target="_blank" rel="noopener">izomapa</a> by <a href="https://www.adamklatovsky.cz/" target="_blank" rel="noopener">Adam Klatovský</a> (original map: <a href="https://izomapa.fun" target="_blank" rel="noopener">isometric Liberec</a>).<br>
+  Map data © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors (ODbL) and <a href="https://overturemaps.org/" target="_blank" rel="noopener">Overture Maps</a> (incl. Microsoft and Google building footprints), terrain Terrarium (AWS Open Data){{MHD_ZDROJ}}{{VITR_ZDROJ}}{{LETADLA_ZDROJ}}{{DOPRAVA_ZDROJ}}.</p>
 </dialog>
 <dialog class="help plocha" id="plochaDlg" aria-labelledby="plochaTitle">
-  <button class="px-btn close" id="plochaClose" type="button" aria-label="Zavřít">×</button>
-  <h3 id="plochaTitle">Mapa jako aplikace</h3>
-  <p>Ikona na ploše otevře mapu rovnou přes celou obrazovku, bez lišty prohlížeče.</p>
-  <p class="pl-os" id="plInstall" hidden><button class="px-btn" id="plochaGo" type="button">Přidat na plochu</button></p>
-  <div class="pl-os" data-os="ios"><h4>iPhone a iPad (Safari)</h4><ol><li>Dole klepněte na <b>Sdílet</b> (čtvereček se šipkou nahoru).</li><li>Vyberte <b>Přidat na plochu</b>.</li><li>Potvrďte <b>Přidat</b>.</li></ol></div>
-  <div class="pl-os" data-os="android"><h4>Android (Chrome)</h4><ol><li>Vpravo nahoře klepněte na <b>⋮</b>.</li><li>Vyberte <b>Přidat na plochu</b> nebo <b>Instalovat aplikaci</b>.</li><li>Potvrďte <b>Instalovat</b>.</li></ol></div>
-  <div class="pl-os" data-os="pc"><h4>Počítač (Chrome, Edge)</h4><ol><li>V adresním řádku vpravo klikněte na ikonu <b>Instalovat</b> (monitor se šipkou).</li><li>Nebo v menu <b>⋮</b> zvolte <b>Uložit a sdílet → Instalovat stránku jako aplikaci</b>.</li></ol><p>V Safari na Macu: <b>Soubor → Přidat do Docku</b>.</p></div>
+  <button class="px-btn close" id="plochaClose" type="button" aria-label="Close">×</button>
+  <h3 id="plochaTitle">The map as an app</h3>
+  <p>A home screen icon opens the map full screen, without the browser bar.</p>
+  <p class="pl-os" id="plInstall" hidden><button class="px-btn" id="plochaGo" type="button">Add to home screen</button></p>
+  <div class="pl-os" data-os="ios"><h4>iPhone and iPad (Safari)</h4><ol><li>Tap <b>Share</b> (the square with an up arrow).</li><li>Choose <b>Add to Home Screen</b>.</li><li>Tap <b>Add</b>.</li></ol></div>
+  <div class="pl-os" data-os="android"><h4>Android (Chrome)</h4><ol><li>Tap <b>⋮</b> at the top right.</li><li>Choose <b>Add to Home screen</b> or <b>Install app</b>.</li><li>Tap <b>Install</b>.</li></ol></div>
+  <div class="pl-os" data-os="pc"><h4>Computer (Chrome, Edge)</h4><ol><li>Click the <b>Install</b> icon at the right of the address bar.</li><li>Or in the <b>⋮</b> menu choose <b>Cast, save and share → Install page as app</b>.</li></ol><p>Safari on Mac: <b>File → Add to Dock</b>.</p></div>
 </dialog>
-<nav class="mbar" id="mbar" aria-label="Rychlé ovládání">
-  <button class="px-btn" type="button" data-s="spring">Jaro</button>
-  <button class="px-btn" type="button" data-s="summer">Léto</button>
-  <button class="px-btn" type="button" data-s="autumn">Podzim</button>
-  <button class="px-btn" type="button" data-s="winter">Zima</button>
-  <button class="px-btn" type="button" id="mTime">Den</button>
-  <button class="px-btn" type="button" id="mShare" aria-label="Sdílet tento pohled"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v11M8 7l4-4 4 4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"/><path d="M8 10H5v11h14V10h-3" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"/></svg></button>
+<nav class="mbar" id="mbar" aria-label="Quick controls">
+  <button class="px-btn" type="button" data-s="spring">Spring</button>
+  <button class="px-btn" type="button" data-s="summer">Summer</button>
+  <button class="px-btn" type="button" data-s="autumn">Autumn</button>
+  <button class="px-btn" type="button" data-s="winter">Winter</button>
+  <button class="px-btn" type="button" id="mTime">Day</button>
+  <button class="px-btn" type="button" id="mShare" aria-label="Share this view"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v11M8 7l4-4 4 4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"/><path d="M8 10H5v11h14V10h-3" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"/></svg></button>
 </nav>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/openseadragon/4.1.0/openseadragon.min.js" integrity="sha384-4BsIv4BUV37POdA1NZ6UcVAsFk96MQXmFLog7pWs+JP+a8k2XjilfManEVdWDxTe" crossorigin="anonymous"></script>
@@ -577,7 +577,7 @@ dialog.help ol.vd-list { margin: 0; padding-left: 22px; } ol.vd-list li { margin
       const el = document.createElement('a'); el.className = 'pin neighbor'; el.href = neighborHref(n);
       if (n.target) el.target = n.target;
       if (el.target === '_blank') el.rel = 'noopener';
-      el.title = n.text || `Přejít na mapu: ${n.name}`;
+      el.title = n.text || `Go to map: ${n.name}`;
       el.innerHTML = `<span class="pin-ico">↗</span> ${n.name}`;
       const upd = () => { el.href = neighborHref(n); };
       el.addEventListener('pointerenter', upd);
@@ -670,7 +670,7 @@ dialog.help ol.vd-list { margin: 0; padding-left: 22px; } ol.vd-list li { margin
     const d = smooth(0.35, 0.95, t);
     const mix = (a, b) => Math.round(a + (b - a) * d);
     $('map').style.background = $('osd').style.background = `rgb(${mix(27 + warm * 30, 9)},${mix(35 + warm * 12, 12)},${mix(51, 24)})`;
-    $('mTime').textContent = t < 0.25 ? 'Den' : t < 0.7 ? 'Soumrak' : 'Noc';
+    $('mTime').textContent = t < 0.25 ? 'Day' : t < 0.7 ? 'Dusk' : 'Night';
   }
   function applyVisibility() {
     for (const l of LAYERS) if (l.day) l.day.setOpacity(layerOpacity(l));
@@ -718,7 +718,7 @@ dialog.help ol.vd-list { margin: 0; padding-left: 22px; } ol.vd-list li { margin
     if (w === 'snow' && !snowAllowed()) w = 'clear';
     state.weather = w;
     const sb = document.querySelector('[data-w="snow"]');
-    sb.disabled = !snowAllowed(); sb.title = snowAllowed() ? '' : 'Sníh jen na podzim a v zimě';
+    sb.disabled = !snowAllowed(); sb.title = snowAllowed() ? '' : 'Snow only in autumn and winter';
     document.querySelectorAll('[data-w]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.w === w)));
   }
   document.querySelectorAll('[data-s]').forEach((b) => b.addEventListener('click', () => { if (b.dataset.s !== state.season) $('realWeather').checked = false; setSeason(b.dataset.s); }));
@@ -853,11 +853,20 @@ dialog.help ol.vd-list { margin: 0; padding-left: 22px; } ol.vd-list li { margin
   const myPlaces = OV.places.filter((p) => !OBEC || !p.obec || p.obec === OBEC);
   if (!myPlaces.length) $('placesBox').hidden = true;      // bez mista.json
 
+  // English labels for building types and search result kinds (data keeps the original Czech keys)
+  const CLS_MAP = { 'rodinný dům': 'house', 'obytný dům': 'residential building', 'bytový dům': 'apartment building', 'garáž': 'garage', 'garáže': 'garages',
+    'průmyslová budova': 'industrial building', 'sklad': 'warehouse', 'občanská stavba': 'public building', 'škola': 'school', 'univerzita': 'university',
+    'obchod': 'shop', 'komerční budova': 'commercial building', 'kostel': 'church', 'kaple': 'chapel', 'mateřská škola': 'kindergarten', 'kůlna': 'shed',
+    'stodola': 'barn', 'technická budova': 'utility building', 'kanceláře': 'offices', 'dvojdům': 'semi-detached house', 'řadový dům': 'terraced house',
+    'bungalov': 'bungalow', 'kolej': 'dormitory', 'zdravotnictví': 'healthcare', 'skleník': 'greenhouse', 'přístřešek': 'shelter', 'chata': 'cabin',
+    'usedlost': 'farmhouse', 'hospodářská budova': 'farm building', 'stavba pro dopravu': 'transport building', 'budova': 'building' };
+  const CLS_EN = (c) => CLS_MAP[c] || c || 'building';
+  const KIND_EN = { 'místo': 'place', 'zastávka': 'stop', budova: 'building', ulice: 'street', adresa: 'address', soused: 'neighbouring map' };
   // ---------- karta ----------
-  const ROOF = { flat: 'plochá', gabled: 'sedlová', hipped: 'valbová', pyramidal: 'stanová' };
+  const ROOF = { flat: 'flat', gabled: 'gabled', hipped: 'hipped', pyramidal: 'pyramidal' };
   function showCard({ title, text, rows, lon, lat, k, link, linkText, target }) {
     $('cardTitle').textContent = title;
-    if (k && !(LAYERS.find((l) => l.key === k) || {}).status?.startsWith('hotovo')) { const t = document.createElement('span'); t.className = 'wip-tag'; t.textContent = 'Rozpracováno'; $('cardTitle').append(' ', t); }
+    if (k && !(LAYERS.find((l) => l.key === k) || {}).status?.startsWith('hotovo')) { const t = document.createElement('span'); t.className = 'wip-tag'; t.textContent = 'Work in progress'; $('cardTitle').append(' ', t); }
     $('cardText').hidden = !text; $('cardText').textContent = text || '';
     const dl = $('cardDl'); dl.replaceChildren();
     for (const [k, v] of rows) { if (v === undefined || v === null || v === '') continue; const dt = document.createElement('dt'); dt.textContent = k; const dd = document.createElement('dd'); dd.textContent = v; dl.append(dt, dd); }
@@ -866,14 +875,14 @@ dialog.help ol.vd-list { margin: 0; padding-left: 22px; } ol.vd-list li { margin
       const btn = document.createElement('a'); btn.href = link; btn.className = 'card-neighbor-btn';
       if (target) btn.target = target;
       if (btn.target === '_blank') btn.rel = 'noopener';
-      btn.textContent = linkText || `Přejít na mapu ${title} ↗`;
+      btn.textContent = linkText || `Go to map ${title} ↗`;
       links.append(btn);
     }
     const a = document.createElement('a'); a.target = '_blank'; a.rel = 'noopener';
-    a.href = `https://mapy.cz/zakladni?x=${lon.toFixed(6)}&y=${lat.toFixed(6)}&z=19&source=coor&id=${lon.toFixed(6)}%2C${lat.toFixed(6)}`;
-    a.textContent = 'Ukázat ve skutečnosti (Mapy.cz)';
+    a.href = `https://www.openstreetmap.org/?mlat=${lat.toFixed(6)}&mlon=${lon.toFixed(6)}#map=19/${lat.toFixed(6)}/${lon.toFixed(6)}`;
+    a.textContent = 'Show on OpenStreetMap';
     const s = document.createElement('a'); s.target = '_blank'; s.rel = 'noopener';
-    s.href = `https://mapy.cz/letecka?x=${lon.toFixed(6)}&y=${lat.toFixed(6)}&z=19`; s.textContent = 'Letecký snímek';
+    s.href = `https://www.google.com/maps/@${lat.toFixed(6)},${lon.toFixed(6)},120m/data=!3m1!1e3`; s.textContent = 'Satellite view';
     links.append(a, s);
     $('card').style.transform = '';
     $('card').hidden = false;
@@ -890,16 +899,16 @@ dialog.help ol.vd-list { margin: 0; padding-left: 22px; } ol.vd-list li { margin
   }
   $('reportForm').addEventListener('submit', async (e) => {
     e.preventDefault(); if (!repTarget) return;
-    if ($('repNote').value.trim().length < 3) { repMsg('Napište prosím, co tu nesedí (aspoň pár slov).', 'err'); return; }
+    if ($('repNote').value.trim().length < 3) { repMsg('Please describe what is wrong (a few words at least).', 'err'); return; }
     $('reportForm').querySelector('button').disabled = true;
-    repMsg('Odesílám…', '');
+    repMsg('Sending…', '');
     try {
       const r = await fetch('api/report', { method: 'POST', headers: { 'content-type': 'application/json' },
         body: JSON.stringify({ ...repTarget, note: $('repNote').value.trim() }) });
       const d = await r.json().catch(() => ({}));
-      if (d.ok) { $('repNote').value = ''; repMsg('Díky! Hlášení je odeslané.', 'ok'); }
-      else repMsg(d.msg || 'Hlášení se nepovedlo odeslat. Zkuste to prosím za chvíli.', 'err');
-    } catch { repMsg('Hlášení teď nejde odeslat (bez připojení?). Zkuste to prosím později.', 'err'); }
+      if (d.ok) { $('repNote').value = ''; repMsg('Thanks! Report sent.', 'ok'); }
+      else repMsg(d.msg || 'The report could not be sent. Please try again shortly.', 'err');
+    } catch { repMsg('The report can\'t be sent right now (offline?). Please try later.', 'err'); }
     $('reportForm').querySelector('button').disabled = false;
   });
   // speciální místo k budově: špendlík místa leží v obrysu budovy a budova je do 35 m (OSM má jiné názvy, „sv. Jan Křtitel“)
@@ -914,9 +923,9 @@ dialog.help ol.vd-list { margin: 0; padding-left: 22px; } ol.vd-list li { margin
     const pl = placeOf(b);
     const nm = pl ? pl.name : b.name;
     const story = (pl && pl.text) || b.text || (nm && placeByName[nm] ? placeByName[nm].text : null);
-    const title = nm || b.cls[0].toUpperCase() + b.cls.slice(1);
+    const title = nm || CLS_EN(b.cls)[0].toUpperCase() + CLS_EN(b.cls).slice(1);
     showCard({ title, text: story, lon: b.lon, lat: b.lat, k: b.k, rows: [
-      ['Adresa', (b.addr || []).join(', ')], ['Typ', nm ? b.cls : null],
+      ['Address', (b.addr || []).join(', ')], ['Type', nm ? CLS_EN(b.cls) : null],
     ] });
     setReport(b.oid ? 'b:' + b.oid : b.id, [title, (b.addr || [])[0]].filter(Boolean).join(', '), b.lon, b.lat);
   }
@@ -931,14 +940,14 @@ dialog.help ol.vd-list { margin: 0; padding-left: 22px; } ol.vd-list li { margin
       if (d < nd) { nb = n; nd = d; }
     }
     if (nb) {
-      showCard({ title: nb.name, text: nb.text || 'Sousední izometrická mapa.', lon: nb.lon, lat: nb.lat, k: nb.k, link: neighborHref(nb), linkText: `Přejít na mapu ${nb.name} ↗`, target: nb.target, rows: [['Sousední mapa', nb.name]] });
+      showCard({ title: nb.name, text: nb.text || 'Neighbouring isometric map.', lon: nb.lon, lat: nb.lat, k: nb.k, link: neighborHref(nb), linkText: `Go to map ${nb.name} ↗`, target: nb.target, rows: [['Neighbouring map', nb.name]] });
       return;
     }
     // místo bez budovy (náměstí, hřbitov, přehrada): klik do 40 m od jeho špendlíku (1 px = 0,2 m)
     let pl = null, bd = 200;
     for (const p of OV.places) { if (!shown(p.k)) continue; const d = Math.hypot(ix - p.xy[0], iy - p.xy[1]); if (d < bd) { pl = p; bd = d; } }
     if (pl) { showCard({ title: pl.name, text: pl.text, lon: pl.lon, lat: pl.lat, k: pl.k, rows: [] }); return; }
-    showCard({ title: 'Vybrané místo', rows: [], lon, lat });
+    showCard({ title: 'Selected spot', rows: [], lon, lat });
   }
   const closeCard = () => { $('card').hidden = true; state.sel = null; };
   $('cardClose').addEventListener('click', closeCard);
@@ -1021,7 +1030,7 @@ dialog.help ol.vd-list { margin: 0; padding-left: 22px; } ol.vd-list li { margin
   const index = [];
   for (const n of OV.neighbors || []) {
     if (OBEC && n.obec && n.obec !== OBEC) continue;
-    index.push({ label: n.name, kind: 'soused', k: n.k, n: norm(n.name), go: () => { goTo(n.xy[0], n.xy[1], 1.4); showCard({ title: n.name, text: n.text || 'Sousední izometrická mapa.', lon: n.lon, lat: n.lat, k: n.k, link: neighborHref(n), linkText: `Přejít na mapu ${n.name} ↗`, target: n.target, rows: [['Sousední mapa', n.name]] }); } });
+    index.push({ label: n.name, kind: 'soused', k: n.k, n: norm(n.name), go: () => { goTo(n.xy[0], n.xy[1], 1.4); showCard({ title: n.name, text: n.text || 'Neighbouring isometric map.', lon: n.lon, lat: n.lat, k: n.k, link: neighborHref(n), linkText: `Go to map ${n.name} ↗`, target: n.target, rows: [['Neighbouring map', n.name]] }); } });
   }
   for (const p of OV.places) index.push({ label: p.name, kind: 'místo', k: p.k, n: norm(p.name), go: () => { goTo(p.xy[0], p.xy[1], 1.4); showCard({ title: p.name, text: p.text, lon: p.lon, lat: p.lat, k: p.k, rows: [] }); } });
   for (const s of OV.streets) index.push({ label: s.name, kind: 'ulice', k: s.k, n: norm(s.name), go: () => goTo(s.xy[0], s.xy[1], 0.9) });
@@ -1037,7 +1046,7 @@ dialog.help ol.vd-list { margin: 0; padding-left: 22px; } ol.vd-list li { margin
     res.forEach((r, i) => {
       const li = document.createElement('li'); const b = document.createElement('button'); b.type = 'button';
       if (i === cur) b.className = 'on';
-      const s1 = document.createElement('span'); s1.textContent = r.label; const s2 = document.createElement('small'); s2.textContent = r.kind;
+      const s1 = document.createElement('span'); s1.textContent = r.label; const s2 = document.createElement('small'); s2.textContent = KIND_EN[r.kind] || r.kind;
       b.append(s1, s2); b.addEventListener('click', () => pick(r)); li.appendChild(b); ul.appendChild(li);
     });
   }
@@ -1063,7 +1072,7 @@ dialog.help ol.vd-list { margin: 0; padding-left: 22px; } ol.vd-list li { margin
   const zbtn = (id, f) => $(id).addEventListener('click', f);
   zbtn('zin', () => viewer.viewport.zoomBy(1.6));
   zbtn('zout', () => viewer.viewport.zoomBy(1 / 1.6));
-  if (HOME_VIEW && !HOME_ALL) $('home').title = 'Výchozí pohled';
+  if (HOME_VIEW && !HOME_ALL) $('home').title = 'Default view';
   zbtn('home', () => goHome());
   // Tlačítko Zpět (a gesto zpět na Androidu) zavře otevřené okno místo odchodu z webu: otevření okna přidá záznam do historie
   for (const d of document.querySelectorAll('dialog')) {
@@ -1105,18 +1114,18 @@ dialog.help ol.vd-list { margin: 0; padding-left: 22px; } ol.vd-list li { margin
     const toast = (t) => { $('toast').textContent = t; $('toast').hidden = false; clearTimeout(share.t); share.t = setTimeout(() => { $('toast').hidden = true; }, 2200); };
     try {
       if (navigator.share && isMobile()) { await navigator.share({ title: document.title, url }); return; }
-      await navigator.clipboard.writeText(url); toast('Odkaz na tento pohled je zkopírovaný');
+      await navigator.clipboard.writeText(url); toast('Link to this view copied');
     } catch (e) {
       if (e && e.name === 'AbortError') return;                  // člověk sdílení zavřel: nic nehlásit
       try {                                                      // vestavěné prohlížeče bez schránky: starý způsob kopírování
         const ta = document.createElement('textarea'); ta.value = url; ta.style.cssText = 'position:fixed;opacity:0'; document.body.append(ta); ta.select();
         const ok = document.execCommand('copy'); ta.remove();
-        toast(ok ? 'Odkaz na tento pohled je zkopírovaný' : url);
+        toast(ok ? 'Link to this view copied' : url);
       } catch { toast(url); }
     }
   }
   zbtn('share', share); zbtn('mShare', share);
-  function setMenu(open) { $('panel').classList.toggle('closed', !open); $('menu').setAttribute('aria-expanded', String(open)); $('menu').textContent = open ? 'Skrýt' : 'Menu'; }
+  function setMenu(open) { $('panel').classList.toggle('closed', !open); $('menu').setAttribute('aria-expanded', String(open)); $('menu').textContent = open ? 'Hide' : 'Menu'; }
   $('menu').addEventListener('click', () => setMenu($('panel').classList.contains('closed')));
   // desktop: panel jde zasunout ouškem vpravo od něj, stav si pamatuje prohlížeč
   function setFold(f) {
@@ -1522,7 +1531,7 @@ dialog.help ol.vd-list { margin: 0; padding-left: 22px; } ol.vd-list li { margin
   }
   function mhdFollowText() {
     const i = MHD.follow, a = MHD.act.find((q) => q[0] === i);
-    if (!a) { $('followTxt').textContent = 'Spoj dojel do cílové zastávky.'; MHD.follow = null; setTimeout(() => { if (MHD.follow === null) $('follow').hidden = true; }, 4000); return; }
+    if (!a) { $('followTxt').textContent = 'The bus reached its last stop.'; MHD.follow = null; setTimeout(() => { if (MHD.follow === null) $('follow').hidden = true; }, 4000); return; }
     const t = MHD.trips[i], [line, typ] = MHD.routes[t[0]], z = t[6]; let next = '';
     for (let k = 0; k < z.length; k += 2) if (z[k + 1] >= a[1]) { next = MHD.names[z[k]]; break; }
     const b = document.createElement('b'); b.textContent = `${typ === 0 ? 'Tramvaj' : typ === 2 ? 'Vlak' : 'Autobus'} ${line}`;
@@ -2562,7 +2571,7 @@ dialog.help ol.vd-list { margin: 0; padding-left: 22px; } ol.vd-list li { margin
       if (MHD.follow !== null) MHD.follow = null;
       $('follow').hidden = false;
       const b = document.createElement('b'); b.textContent = `✈️ Let ${p.callsign}`;
-      $('followTxt').replaceChildren(b, ` · ${p.model || (p.cat === 'jet' ? 'Dopravní letadlo' : 'Sportovní letadlo')} · Výška: ${Math.round(p.alt)} m (${Math.round(p.alt * 3.2808)} ft) · Rychlost: ${Math.round(p.speed * 3.6)} km/h`);
+      $('followTxt').replaceChildren(b, ` · ${p.model || (p.cat === 'jet' ? 'Airliner' : 'Light aircraft')} · Výška: ${Math.round(p.alt)} m (${Math.round(p.alt * 3.2808)} ft) · Rychlost: ${Math.round(p.speed * 3.6)} km/h`);
       closeCard();
     } else {
       $('follow').hidden = true;
