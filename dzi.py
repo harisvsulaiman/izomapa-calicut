@@ -150,7 +150,7 @@ if __name__ == '__main__':
     chunk = None
     if args[:1] == ['--chunk']:
         chunk = tuple(int(v) for v in args[1].split(',')); args = args[2:]
-    variants = args or ['autumn', 'winter', 'spring', 'summer', 'lights']
+    variants = args or os.environ.get('VARIANTY', 'autumn winter spring summer lights').split()
     built = {v: build(v, chunk) if chunk else build(v) for v in variants}
     # souběžný render (render_par.sh): tiles.json se načte a zapíše až pod zámkem, ať si čtverce nepřepíšou záznamy.
     # Zámek je soubor vytvořený s O_EXCL (funguje i na Windows); po pádu jiného běhu se starý zámek po 2 minutách smaže.
@@ -169,7 +169,7 @@ if __name__ == '__main__':
             ch = out.setdefault('chunks', {}).setdefault(name, {'chunk': list(chunk), 'status': CHUNKS[chunk]})
             ch['status'] = CHUNKS[chunk]; ch.update(built)
         else:
-            info = json.load(open('build/tiles_autumn/info.json'))
+            info = (lambda: next(json.load(open(f'build/tiles_{v}/info.json')) for v in ('autumn', 'summer', 'spring') if os.path.exists(f'build/tiles_{v}/info.json')))()   # první vyrenderované období
             out['base'] = {'x0': info['x0'], 'y1': info['y1'], 'mpp': info['mpp'], 'status': CHUNKS[(0, 0)]}
             out.update(built)
         out['ver'] = time.strftime('%Y%m%d%H%M')              # verze dlaždic pro cache prohlížeče: mění se jen tady, když vzniknou nové dlaždice

@@ -12,7 +12,7 @@ for s in $V; do
     rm -rf $D/tiles_$s
     node render.mjs dir=$D out=$D/tiles_$s season=${s#xmas_} mode=xmas alpha=1 $G > $D/render_$s.log 2>&1 || { tail -5 $D/render_$s.log; echo "RENDER SELHAL $C $s"; exit 1; }
   elif [ "$s" = lights ]; then
-    node render.mjs dir=$D out=$D/tiles_lights season=autumn mode=lights alpha=1 $G > $D/render_$s.log 2>&1 || { tail -5 $D/render_$s.log; echo "RENDER SELHAL $C $s"; exit 1; }
+    node render.mjs dir=$D out=$D/tiles_lights season=${LIGHTS_SEASON:-autumn} mode=lights alpha=1 $G > $D/render_$s.log 2>&1 || { tail -5 $D/render_$s.log; echo "RENDER SELHAL $C $s"; exit 1; }
   else
     node render.mjs dir=$D out=$D/tiles_$s season=$s alpha=1 $G > $D/render_$s.log 2>&1 || { tail -5 $D/render_$s.log; echo "RENDER SELHAL $C $s"; exit 1; }
   fi

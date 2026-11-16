@@ -7,7 +7,7 @@ from PIL import Image
 
 os.makedirs('site/preview', exist_ok=True)
 from concurrent.futures import ThreadPoolExecutor
-VARIANTS = ['spring', 'summer', 'autumn', 'winter']
+VARIANTS = [v for v in ['spring', 'summer', 'autumn', 'winter'] if os.path.isdir(f'build/tiles_{v}')]   # jen vyrenderovaná období
 # skládání čtyř období běží souběžně (každé je samostatný proces)
 with ThreadPoolExecutor(4) as ex:
     list(ex.map(lambda v: subprocess.run([sys.executable, 'compose.py', v, '16', f'site/preview/{v}.webp'], check=True, env={**os.environ, 'TRANSPARENT': '1'}), VARIANTS))

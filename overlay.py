@@ -10,7 +10,8 @@ import os
 from geo import CAM_X, CAM_Y, CHUNKS, HALF, KX, KY, LAT0, LON0, MESTO, MPP_OVERLAY, Image2D, chunk_center, chunk_dir, to_local
 
 # souřadnice obrázku = pixely čtverce (0, 0); ostatní čtverce leží mimo (záporné / větší souřadnice)
-info = json.load(open('build/tiles_autumn/info.json'))
+import os as _os
+info = next(json.load(open(f'build/tiles_{v}/info.json')) for v in ('autumn', 'summer', 'spring') if _os.path.exists(f'build/tiles_{v}/info.json'))
 if info['mpp'] != MPP_OVERLAY:          # detailní rozlišení: dlaždice jsou jemnější, obrysy a animace prohlížeče zůstávají v pixelech 0,2 m
     k = info['mpp'] / MPP_OVERLAY
     info = {**info, 'mpp': MPP_OVERLAY, 'width': round(info['width'] * k), 'height': round(info['height'] * k)}

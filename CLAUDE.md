@@ -1,7 +1,9 @@
 > **Calicut build (local note):** this checkout is set up for Calicut / Kozhikode, Kerala, India. The user speaks
 > English: communicate in English, not Czech. Follow `CALICUT.md` first. Outside Czechia there are no ČÚZK data
 > (laser heights, orthophoto, ZABAGED fields, RÚIAN): `postav.sh` skips those steps when `mesto.json` has
-> `"zeme": "in"`. Building heights come from Overture/OSM only. Never trace from Google Maps screenshots.
+> `"zeme": "in"`. Building heights come from Google Open Buildings 2.5D (`ci/google_heights.py` writes `assets/dmp_vysky.json`).
+> Seasons are Kerala's (Summer = spring tiles, Monsoon and Winter = summer tiles, no snow; only `spring summer lights` are rendered).
+> The build runs on GitHub Actions (`.github/workflows/build.yml`). Never trace from Google Maps screenshots.
 
 # izomapa – návod pro AI agenta
 
