@@ -12,6 +12,9 @@ concurrency: { group: build-map, cancel-in-progress: true }
 env:
   PYTHONUTF8: '1'
   PIP_PKGS: shapely pyproj numpy pillow pyarrow pandas scipy
+  CHUNKS: '0,2 1,2 0,1 1,1 2,1 0,0 1,0 2,0 3,0 0,-1 1,-1 2,-1 3,-1'
+  VARIANTY: 'spring summer lights'      # Kerala: Summer = spring tiles, Monsoon/Winter = summer tiles, no snow
+  LIGHTS_SEASON: summer
 
 jobs:
   source:
@@ -46,17 +49,23 @@ jobs:
         run: .venv/bin/python ci/mesto.py 2>&1 | tee data.log
       - name: fetch data
         run: .venv/bin/python fetch_data.py --vse 2>&1 | tee -a data.log
+      - name: building heights (Google Open Buildings 2.5D)
+        run: |
+          .venv/bin/pip install -q rasterio s2sphere
+          .venv/bin/python ci/google_heights.py 2>&1 | tee heights.log || echo "heights failed, keeping estimates" | tee -a heights.log
+      - name: landmarks and place stories
+        run: mkdir -p assets && cp ci/dominanty.json assets/dominanty.json && cp ci/mista.json mista.json
       - name: playgrounds and chimneys (OSM, optional)
         run: |
           mkdir -p assets
           .venv/bin/python nastroje/hriste.py 2>&1 | tail -5 | tee -a data.log || true
           .venv/bin/python nastroje/kominy.py 2>&1 | tail -5 | tee -a data.log || true
-      - run: mkdir -p assets && tar -cf data.tar mesto.json assets data data_* && ls -la data.tar
+      - run: mkdir -p assets && tar -cf data.tar mesto.json mista.json assets data data_* && ls -la data.tar
       - uses: actions/upload-artifact@v4
         with: { name: data, path: data.tar, retention-days: 7 }
       - if: always()
         env: { GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}' }
-        run: sh ci/report.sh data ${{ job.status }} data.log
+        run: sh ci/report.sh data ${{ job.status }} data.log heights.log
 
   render:
     needs: [source, data]
@@ -65,8 +74,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        chunk: ['0,0', '0,1', '1,0', '0,-1']
-        variant: [summer, spring, autumn, winter, lights]
+        chunk: ['0,2', '1,2', '0,1', '1,1', '2,1', '0,0', '1,0', '2,0', '3,0', '0,-1', '1,-1', '2,-1', '3,-1']
+        variant: [summer, spring, lights]
     steps:
       - uses: actions/checkout@v4
         with: { ref: '${{ needs.source.outputs.sha }}' }
@@ -86,7 +95,7 @@ jobs:
           if [ "$c" = "0,0" ]; then D=data; B=build; else D=data_c$(echo $c | tr ',' '_'); B=build/c$(echo $c | tr ',' '_'); fi
           mkdir -p build; .venv/bin/python prep.py $D $c > prep.log 2>&1 || { tail -40 prep.log; exit 1; }
           start=$(date +%s); . .venv/bin/activate
-          ./render_chunk.sh $c $v > render.log 2>&1 || { cat render.log; tail -40 $B/render_$v.log; exit 1; }
+          sh render_chunk.sh $c $v > render.log 2>&1 || { cat render.log; tail -40 $B/render_$v.log; exit 1; }
           echo "rendered in $(( $(date +%s) - start )) s" | tee -a render.log
           cp $B/render_$v.log render_detail.log || true
           tar -cf tiles.tar $B/tiles_$v
@@ -124,14 +133,14 @@ jobs:
         run: |
           . .venv/bin/activate
           set -e
-          { for c in 0,0 0,1 1,0 0,-1; do
+          { for c in $CHUNKS; do
               if [ "$c" = "0,0" ]; then D=data; else D=data_c$(echo $c | tr ',' '_'); fi
               python prep.py $D $c > /dev/null
             done
             mkdir -p site/tiles
             python dzi.py
-            for c in 0,1 1,0 0,-1; do python dzi.py --chunk $c; done
-            for s in summer autumn winter spring; do node render.mjs mpp=0.2 dir=build season=$s alpha=1 stromy=site/stromy > /dev/null; done
+            for c in $CHUNKS; do [ "$c" = "0,0" ] || python dzi.py --chunk $c; done
+            for s in summer spring; do node render.mjs mpp=0.2 dir=build season=$s alpha=1 stromy=site/stromy > /dev/null; done
             python compose.py summer 8 site/nahled_summer.png
             python preview.py
             python overlay.py
