@@ -48,9 +48,10 @@ jobs:
         run: .venv/bin/python fetch_data.py --vse 2>&1 | tee -a data.log
       - name: playgrounds and chimneys (OSM, optional)
         run: |
+          mkdir -p assets
           .venv/bin/python nastroje/hriste.py 2>&1 | tail -5 | tee -a data.log || true
           .venv/bin/python nastroje/kominy.py 2>&1 | tail -5 | tee -a data.log || true
-      - run: tar -cf data.tar mesto.json assets data data_* && ls -la data.tar
+      - run: mkdir -p assets && tar -cf data.tar mesto.json assets data data_* && ls -la data.tar
       - uses: actions/upload-artifact@v4
         with: { name: data, path: data.tar, retention-days: 7 }
       - if: always()
