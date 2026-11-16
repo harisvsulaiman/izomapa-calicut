@@ -1,4 +1,4 @@
-success 2026-11-16T13:39:19Z run=43876733067
+success 2026-11-16T14:08:29Z run=43881466774
 == prep.log
 /home/runner/work/izomapa-calicut/izomapa-calicut/prep.py:103: DeprecationWarning: The 'shapely.ops.transform()' function is deprecated. Use 'shapely.transform()' or 'shapely.transform_coordseq()' instead. See https://shapely.readthedocs.io/en/latest/manual.html#shapely.ops.transform for more details.
   t['geom'] = t.geometry.map(lambda g: transform(lambda x, y, z=None: to_local(x, y), shapely.from_wkb(g)))
@@ -17,10 +17,10 @@ success 2026-11-16T13:39:19Z run=43876733067
 terén 461 x 461 převýšení 27.6 m
 mostů 5 z toho lávek 2 nájezdů 10
 dominant napárováno na budovy 0
-budov 866 z toho od sousedů 36 komínů 630
-{'bench': 0, 'lamp': 2078, 'bin': 0, 'recycling': 0, 'shelter': 11, 'tower': 0, 'pole': 0, 'wheelie': 422} aut 701 {'fence': 0, 'hedge': 0, 'wall': 0, 'power': 0, 'lift': 0}
-stromů nad vozovkou odstraněno 211
-stromů 10377
+budov 10073 z toho od sousedů 389 komínů 8573
+{'bench': 0, 'lamp': 1955, 'bin': 0, 'recycling': 0, 'shelter': 11, 'tower': 0, 'pole': 0, 'wheelie': 2143} aut 701 {'fence': 0, 'hedge': 0, 'wall': 0, 'power': 0, 'lift': 0, 'pipe': 0}
+stromů nad vozovkou odstraněno 153
+stromů 8263
 skrytých stromů na hřbitovech 0
 hrobů 0 soch 0
 textura summer
@@ -35,65 +35,65 @@ hotovo
 == render.log
 180
 HOTOVO 0,1
-rendered in 62 s
+rendered in 56 s
 == render_detail.log
-dlaždice 12,6 0.382 s
-dlaždice 13,6 0.356 s
-dlaždice 14,6 0.274 s
-dlaždice 15,6 0.278 s
-dlaždice 16,6 0.279 s
-dlaždice 17,6 0.221 s
-dlaždice 0,7 0.265 s
-dlaždice 1,7 0.267 s
-dlaždice 2,7 0.271 s
-dlaždice 3,7 0.271 s
-dlaždice 4,7 0.271 s
-dlaždice 5,7 0.292 s
+dlaždice 12,6 0.401 s
+dlaždice 13,6 0.28 s
+dlaždice 14,6 0.216 s
+dlaždice 15,6 0.207 s
+dlaždice 16,6 0.208 s
+dlaždice 17,6 0.169 s
+dlaždice 0,7 0.201 s
+dlaždice 1,7 0.206 s
+dlaždice 2,7 0.211 s
+dlaždice 3,7 0.208 s
+dlaždice 4,7 0.209 s
+dlaždice 5,7 0.237 s
 dlaždice 6,7 0.328 s
-dlaždice 7,7 0.369 s
-dlaždice 8,7 0.364 s
-dlaždice 9,7 0.385 s
-dlaždice 10,7 0.373 s
-dlaždice 11,7 0.328 s
-dlaždice 12,7 0.278 s
-dlaždice 13,7 0.267 s
-dlaždice 14,7 0.269 s
-dlaždice 15,7 0.271 s
-dlaždice 16,7 0.266 s
-dlaždice 17,7 0.221 s
-dlaždice 0,8 0.269 s
-dlaždice 1,8 0.272 s
-dlaždice 2,8 0.269 s
-dlaždice 3,8 0.266 s
-dlaždice 4,8 0.275 s
-dlaždice 5,8 0.27 s
-dlaždice 6,8 0.269 s
-dlaždice 7,8 0.288 s
-dlaždice 8,8 0.336 s
-dlaždice 9,8 0.319 s
-dlaždice 10,8 0.275 s
-dlaždice 11,8 0.27 s
-dlaždice 12,8 0.269 s
-dlaždice 13,8 0.269 s
-dlaždice 14,8 0.272 s
-dlaždice 15,8 0.269 s
-dlaždice 16,8 0.27 s
-dlaždice 17,8 0.224 s
-dlaždice 0,9 0.266 s
-dlaždice 1,9 0.269 s
-dlaždice 2,9 0.267 s
-dlaždice 3,9 0.27 s
-dlaždice 4,9 0.267 s
-dlaždice 5,9 0.272 s
-dlaždice 6,9 0.263 s
-dlaždice 7,9 0.266 s
-dlaždice 8,9 0.262 s
-dlaždice 9,9 0.277 s
-dlaždice 10,9 0.266 s
-dlaždice 11,9 0.271 s
-dlaždice 12,9 0.275 s
-dlaždice 13,9 0.271 s
-dlaždice 14,9 0.268 s
-dlaždice 15,9 0.271 s
-dlaždice 16,9 0.271 s
-dlaždice 17,9 0.23 s
+dlaždice 7,7 0.416 s
+dlaždice 8,7 0.426 s
+dlaždice 9,7 0.403 s
+dlaždice 10,7 0.385 s
+dlaždice 11,7 0.284 s
+dlaždice 12,7 0.221 s
+dlaždice 13,7 0.207 s
+dlaždice 14,7 0.207 s
+dlaždice 15,7 0.207 s
+dlaždice 16,7 0.206 s
+dlaždice 17,7 0.17 s
+dlaždice 0,8 0.206 s
+dlaždice 1,8 0.207 s
+dlaždice 2,8 0.205 s
+dlaždice 3,8 0.209 s
+dlaždice 4,8 0.206 s
+dlaždice 5,8 0.206 s
+dlaždice 6,8 0.207 s
+dlaždice 7,8 0.242 s
+dlaždice 8,8 0.346 s
+dlaždice 9,8 0.302 s
+dlaždice 10,8 0.228 s
+dlaždice 11,8 0.205 s
+dlaždice 12,8 0.206 s
+dlaždice 13,8 0.213 s
+dlaždice 14,8 0.209 s
+dlaždice 15,8 0.219 s
+dlaždice 16,8 0.207 s
+dlaždice 17,8 0.169 s
+dlaždice 0,9 0.21 s
+dlaždice 1,9 0.211 s
+dlaždice 2,9 0.206 s
+dlaždice 3,9 0.207 s
+dlaždice 4,9 0.208 s
+dlaždice 5,9 0.213 s
+dlaždice 6,9 0.206 s
+dlaždice 7,9 0.207 s
+dlaždice 8,9 0.207 s
+dlaždice 9,9 0.207 s
+dlaždice 10,9 0.214 s
+dlaždice 11,9 0.207 s
+dlaždice 12,9 0.208 s
+dlaždice 13,9 0.205 s
+dlaždice 14,9 0.214 s
+dlaždice 15,9 0.209 s
+dlaždice 16,9 0.201 s
+dlaždice 17,9 0.169 s
