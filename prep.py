@@ -786,8 +786,10 @@ for l, w, c, n in drive_lines:
 
 # ---------------- budovy ----------------
 bld = load('building')
-# jen budovy z OpenStreetMap (nebo ručně potvrzené v upresneni.json)
-bld = bld[[(s is not None and any(x['dataset'] == 'OpenStreetMap' for x in s)) or i_ in UP['b'] for s, i_ in zip(bld.sources, bld.id)]].reset_index(drop=True)
+# jen budovy z OpenStreetMap (nebo ručně potvrzené v upresneni.json); mimo Česko (nebo s "budovy_ml": true) i strojově
+# rozpoznané půdorysy Overture (Microsoft, Google), protože OSM tam bývá zmapované jen zčásti
+_ML = bool(geo.MESTO.get('budovy_ml', geo.MESTO.get('zeme', 'cz') != 'cz'))
+bld = bld[[_ML or (s is not None and any(x['dataset'] == 'OpenStreetMap' for x in s)) or i_ in UP['b'] for s, i_ in zip(bld.sources, bld.id)]].reset_index(drop=True)
 for i, r in bld.iterrows():                             # výšky z upřesnění mají přednost před daty
     if 'h' in UP['b'].get(r.id, {}): bld.at[i, 'height'] = UP['b'][r.id]['h']
 if len(bld) and UP['roofs']:                            # přístřešky nástupišť (nejsou v OSM jako budovy)
