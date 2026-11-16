@@ -4,7 +4,9 @@ import numpy as np
 from PIL import Image
 
 LON0, LAT0 = 75.7810, 11.2530          # centre of square (0,0): Mananchira / SM Street / Palayam / beach
-CELLS = [[0, 1], [0, 0], [1, 0], [0, -1]]  # Nadakkavu (N), centre, Mavoor Rd side (E), Kallai (S)
+# city centre, beach and Kallai river, plus the NH 66 bypass corridor east of the city:
+# Malaparamba overpass (1,2), Thondayad flyover (1,1)/(2,1), Palazhi flyover, CyberPark and HiLITE (2,0)/(3,0), towards Pantheerankavu (3,-1)
+CELLS = [[0, 2], [1, 2], [0, 1], [1, 1], [2, 1], [0, 0], [1, 0], [2, 0], [3, 0], [0, -1], [1, -1], [2, -1], [3, -1]]
 HALF = 1150.0
 KX, KY = math.cos(math.radians(LAT0)) * 111320.0, 110574.0
 I = [c[0] for c in CELLS]; J = [c[1] for c in CELLS]
@@ -38,5 +40,6 @@ mesto = {
     'href': round(href, 1), 'dno': dno,
     'mhd': {'gtfs': None, 'zdroj': None, 'zdroj_url': None},
     'vanocni_strom': None, 'letadla': False, 'potoky': False, 'sousedi': [],
+    'pocasi': True, 'vitr': True,          # live weather and wind over Calicut from Open-Meteo
 }
 json.dump(mesto, open('mesto.json', 'w', encoding='utf-8'), ensure_ascii=False, indent=1)

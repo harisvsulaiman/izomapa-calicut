@@ -1,0 +1,107 @@
+[
+ {
+  "name": "Calicut Lighthouse",
+  "lat": 11.25846,
+  "lon": 75.769189,
+  "text": "White cylindrical masonry tower with a balcony and lantern, 15 m (Wikipedia).",
+  "spec": {
+   "only": 1,
+   "towers": [
+    {
+     "at": "c",
+     "w": 4.2,
+     "h": 13.5,
+     "top": "dome",
+     "to": 15.5,
+     "tc": [
+      70,
+      74,
+      80
+     ],
+     "round": 1,
+     "wc": [
+      244,
+      244,
+      238
+     ]
+    }
+   ],
+   "wc": [
+    242,
+    242,
+    236
+   ]
+  }
+ },
+ {
+  "name": "Tali Shiva Temple",
+  "lat": 11.24768,
+  "lon": 75.78716,
+  "text": "Kerala-style temple: a low cloister under a broad tiled roof around the two-storey shrine.",
+  "spec": {
+   "r": "hipped",
+   "h": 3.6,
+   "rh": 3.2,
+   "wc": [
+    214,
+    200,
+    176
+   ],
+   "rc": [
+    128,
+    62,
+    40
+   ],
+   "blocks": [
+    {
+     "l": 0.3,
+     "w": 0.32,
+     "h": 6.2
+    },
+    {
+     "l": 0.18,
+     "w": 0.2,
+     "h": 8.6
+    }
+   ]
+  }
+ },
+ {
+  "name": "Mishkal Mosque",
+  "lat": 11.24564,
+  "lon": 75.77612,
+  "text": "Four storeys of timber under tiered, tiled hipped roofs, no domes or minarets (Wikipedia, Sahapedia).",
+  "spec": {
+   "r": "hipped",
+   "h": 4.5,
+   "rh": 2.2,
+   "wc": [
+    104,
+    150,
+    150
+   ],
+   "rc": [
+    118,
+    58,
+    40
+   ],
+   "blocks": [
+    {
+     "l": 0.78,
+     "w": 0.72,
+     "h": 8.0
+    },
+    {
+     "l": 0.56,
+     "w": 0.52,
+     "h": 11.0
+    },
+    {
+     "l": 0.36,
+     "w": 0.34,
+     "h": 13.8
+    }
+   ]
+  }
+ }
+]
