@@ -54,7 +54,7 @@ def ikony_a_manifest(M):
     for size, maskable, out in [(180, False, 'apple-touch-icon.png'), (192, False, 'icon-192.png'), (512, False, 'icon-512.png'),
                                 (192, True, 'icon-maskable-192.png'), (512, True, 'icon-maskable-512.png')]:
         if not os.path.exists(f'site/{out}'): ikona(size, maskable, f'site/{out}')
-    json.dump({'name': M['titulek'], 'short_name': M['nazev'], 'description': M['popis'], 'lang': 'cs', 'start_url': './', 'scope': './',
+    json.dump({'name': M['titulek'], 'short_name': M['nazev'], 'description': M['popis'], 'lang': 'cs' if MESTO.get('zeme', 'cz') == 'cz' else 'en', 'start_url': './', 'scope': './',
                'display': 'standalone', 'orientation': 'any', 'background_color': '#1b2333', 'theme_color': '#1b2333',
                'icons': [{'src': f'icon-{s}.png', 'sizes': f'{s}x{s}', 'type': 'image/png'} for s in (192, 512)]
                         + [{'src': f'icon-maskable-{s}.png', 'sizes': f'{s}x{s}', 'type': 'image/png', 'purpose': 'maskable'} for s in (192, 512)]},
@@ -107,7 +107,7 @@ def postav_stranku(M, html_out='site/index.html', og_cesta='og.jpg', je_obec=Fal
                      'isBasedOn': ['https://www.openstreetmap.org/', 'https://overturemaps.org/', 'https://geoportal.cuzk.cz/']},
                     ensure_ascii=False)
     head = f'''<!doctype html>
-<html lang="cs">
+<html lang="{'cs' if MESTO.get('zeme', 'cz') == 'cz' else 'en'}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -120,7 +120,7 @@ def postav_stranku(M, html_out='site/index.html', og_cesta='og.jpg', je_obec=Fal
 <meta property="og:description" content="{E(M['popis'])}">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="{E(M['titulek'])}">
-<meta property="og:locale" content="cs_CZ">
+<meta property="og:locale" content="{'cs_CZ' if MESTO.get('zeme', 'cz') == 'cz' else 'en_IN'}">
 {og}<script type="application/ld+json">{LD}</script>
 <style>:root{{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}}body{{margin:0;font:14px system-ui}}[hidden]{{display:none!important}}</style>
 '''
