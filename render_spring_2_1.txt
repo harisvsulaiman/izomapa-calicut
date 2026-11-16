@@ -1,0 +1,99 @@
+success 2026-11-16T19:27:17Z run=43936499762
+== prep.log
+/home/runner/work/izomapa-calicut/izomapa-calicut/prep.py:103: DeprecationWarning: The 'shapely.ops.transform()' function is deprecated. Use 'shapely.transform()' or 'shapely.transform_coordseq()' instead. See https://shapely.readthedocs.io/en/latest/manual.html#shapely.ops.transform for more details.
+  t['geom'] = t.geometry.map(lambda g: transform(lambda x, y, z=None: to_local(x, y), shapely.from_wkb(g)))
+/home/runner/work/izomapa-calicut/izomapa-calicut/prep.py:103: DeprecationWarning: The 'shapely.ops.transform()' function is deprecated. Use 'shapely.transform()' or 'shapely.transform_coordseq()' instead. See https://shapely.readthedocs.io/en/latest/manual.html#shapely.ops.transform for more details.
+  t['geom'] = t.geometry.map(lambda g: transform(lambda x, y, z=None: to_local(x, y), shapely.from_wkb(g)))
+/home/runner/work/izomapa-calicut/izomapa-calicut/prep.py:103: DeprecationWarning: The 'shapely.ops.transform()' function is deprecated. Use 'shapely.transform()' or 'shapely.transform_coordseq()' instead. See https://shapely.readthedocs.io/en/latest/manual.html#shapely.ops.transform for more details.
+  t['geom'] = t.geometry.map(lambda g: transform(lambda x, y, z=None: to_local(x, y), shapely.from_wkb(g)))
+/home/runner/work/izomapa-calicut/izomapa-calicut/prep.py:103: DeprecationWarning: The 'shapely.ops.transform()' function is deprecated. Use 'shapely.transform()' or 'shapely.transform_coordseq()' instead. See https://shapely.readthedocs.io/en/latest/manual.html#shapely.ops.transform for more details.
+  t['geom'] = t.geometry.map(lambda g: transform(lambda x, y, z=None: to_local(x, y), shapely.from_wkb(g)))
+/home/runner/work/izomapa-calicut/izomapa-calicut/prep.py:103: DeprecationWarning: The 'shapely.ops.transform()' function is deprecated. Use 'shapely.transform()' or 'shapely.transform_coordseq()' instead. See https://shapely.readthedocs.io/en/latest/manual.html#shapely.ops.transform for more details.
+  t['geom'] = t.geometry.map(lambda g: transform(lambda x, y, z=None: to_local(x, y), shapely.from_wkb(g)))
+/home/runner/work/izomapa-calicut/izomapa-calicut/prep.py:103: DeprecationWarning: The 'shapely.ops.transform()' function is deprecated. Use 'shapely.transform()' or 'shapely.transform_coordseq()' instead. See https://shapely.readthedocs.io/en/latest/manual.html#shapely.ops.transform for more details.
+  t['geom'] = t.geometry.map(lambda g: transform(lambda x, y, z=None: to_local(x, y), shapely.from_wkb(g)))
+/home/runner/work/izomapa-calicut/izomapa-calicut/prep.py:103: DeprecationWarning: The 'shapely.ops.transform()' function is deprecated. Use 'shapely.transform()' or 'shapely.transform_coordseq()' instead. See https://shapely.readthedocs.io/en/latest/manual.html#shapely.ops.transform for more details.
+  t['geom'] = t.geometry.map(lambda g: transform(lambda x, y, z=None: to_local(x, y), shapely.from_wkb(g)))
+terén 461 x 461 převýšení 45.7 m
+mostů 5 z toho lávek 1 nájezdů 10
+dominant napárováno na budovy 0
+budov 8110 z toho od sousedů 510 komínů 6757
+{'bench': 0, 'lamp': 1921, 'bin': 0, 'recycling': 0, 'shelter': 12, 'tower': 9, 'pole': 0, 'wheelie': 2331} aut 613 {'fence': 0, 'hedge': 0, 'wall': 0, 'power': 2, 'lift': 0}
+stromů nad vozovkou odstraněno 58
+stromů 5455
+skrytých stromů na hřbitovech 0
+hrobů 0 soch 0
+textura summer
+textura spring
+textura autumn
+textura winter
+napojení doprostřed kusu rozděleno 13
+jednosměrných úseků pro auta 47 kruhových objezdů 0
+železničních přejezdů 0
+vjezdů na kruhový objezd 0
+hotovo
+== render.log
+180
+HOTOVO 2,1
+rendered in 47 s
+== render_detail.log
+dlaždice 12,6 0.289 s
+dlaždice 13,6 0.214 s
+dlaždice 14,6 0.184 s
+dlaždice 15,6 0.202 s
+dlaždice 16,6 0.18 s
+dlaždice 17,6 0.123 s
+dlaždice 0,7 0.185 s
+dlaždice 1,7 0.183 s
+dlaždice 2,7 0.182 s
+dlaždice 3,7 0.182 s
+dlaždice 4,7 0.184 s
+dlaždice 5,7 0.222 s
+dlaždice 6,7 0.292 s
+dlaždice 7,7 0.342 s
+dlaždice 8,7 0.316 s
+dlaždice 9,7 0.336 s
+dlaždice 10,7 0.308 s
+dlaždice 11,7 0.221 s
+dlaždice 12,7 0.186 s
+dlaždice 13,7 0.184 s
+dlaždice 14,7 0.182 s
+dlaždice 15,7 0.183 s
+dlaždice 16,7 0.183 s
+dlaždice 17,7 0.116 s
+dlaždice 0,8 0.189 s
+dlaždice 1,8 0.182 s
+dlaždice 2,8 0.181 s
+dlaždice 3,8 0.184 s
+dlaždice 4,8 0.184 s
+dlaždice 5,8 0.193 s
+dlaždice 6,8 0.184 s
+dlaždice 7,8 0.219 s
+dlaždice 8,8 0.25 s
+dlaždice 9,8 0.222 s
+dlaždice 10,8 0.187 s
+dlaždice 11,8 0.183 s
+dlaždice 12,8 0.181 s
+dlaždice 13,8 0.182 s
+dlaždice 14,8 0.192 s
+dlaždice 15,8 0.183 s
+dlaždice 16,8 0.191 s
+dlaždice 17,8 0.129 s
+dlaždice 0,9 0.184 s
+dlaždice 1,9 0.182 s
+dlaždice 2,9 0.185 s
+dlaždice 3,9 0.185 s
+dlaždice 4,9 0.188 s
+dlaždice 5,9 0.179 s
+dlaždice 6,9 0.184 s
+dlaždice 7,9 0.184 s
+dlaždice 8,9 0.183 s
+dlaždice 9,9 0.185 s
+dlaždice 10,9 0.184 s
+dlaždice 11,9 0.183 s
+dlaždice 12,9 0.186 s
+dlaždice 13,9 0.18 s
+dlaždice 14,9 0.182 s
+dlaždice 15,9 0.187 s
+dlaždice 16,9 0.183 s
+dlaždice 17,9 0.129 s
