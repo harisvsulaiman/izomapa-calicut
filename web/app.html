@@ -80,6 +80,7 @@ button { font: inherit; color: inherit; }
 .results small { color: var(--muted); font-size: .72rem; white-space: nowrap; }
 
 .chips4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
+.chips3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
 .chips2 { display: grid; grid-template-columns: 1fr 1.6fr; gap: 6px; }
 .wip-tag { display: inline-block; font-family: var(--display); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; color: var(--night); background: var(--lamp); padding: 1px 6px; }
 .daynight { display: grid; gap: 4px; }
@@ -232,7 +233,7 @@ dialog.help ol.vd-list { margin: 0; padding-left: 22px; } ol.vd-list li { margin
   dialog.help .close { width: 44px; height: 44px; }
   .folded .panel { transform: none; }
   .mbar {
-    display: grid; grid-template-columns: repeat(4, 1fr) 1fr 0.8fr; gap: 6px;
+    display: grid; grid-template-columns: repeat(3, 1fr) 1fr 0.8fr; gap: 6px;
     position: fixed; z-index: 5; left: 0; right: 0; bottom: 0;
     padding: 8px max(10px, env(safe-area-inset-right, 0px)) calc(8px + env(safe-area-inset-bottom, 0px)) max(10px, env(safe-area-inset-left, 0px));
     background: var(--panel); border-top: 2px solid var(--edge);
@@ -287,11 +288,10 @@ dialog.help ol.vd-list { margin: 0; padding-left: 22px; } ol.vd-list li { margin
 
   <div>
     <p class="label">Season</p>
-    <div class="chips4" id="seasons">
-      <button class="px-btn" type="button" data-s="spring">Spring</button>
-      <button class="px-btn" type="button" data-s="summer">Summer</button>
-      <button class="px-btn" type="button" data-s="autumn">Autumn</button>
-      <button class="px-btn" type="button" data-s="winter">Winter</button>
+    <div class="chips3" id="seasons">
+      <button class="px-btn" type="button" data-k="summer" title="March to May: hot, dry, trees in bloom">Summer</button>
+      <button class="px-btn" type="button" data-k="monsoon" title="June to September: southwest monsoon">Monsoon</button>
+      <button class="px-btn" type="button" data-k="winter" title="October to February: northeast monsoon, then cool and dry">Winter</button>
     </div>
   </div>
 
@@ -304,10 +304,10 @@ dialog.help ol.vd-list { margin: 0; padding-left: 22px; } ol.vd-list li { margin
 
   <div>
     <p class="label">Weather</p>
-    <div class="chips4" id="weather">
+    <div class="chips3" id="weather">
       <button class="px-btn" type="button" data-w="clear">Clear</button>
       <button class="px-btn" type="button" data-w="rain">Rain</button>
-      <button class="px-btn" type="button" data-w="snow">Snow</button>
+      <button class="px-btn" type="button" data-w="snow" hidden>Snow</button>
       <button class="px-btn" type="button" data-w="fog">Fog</button>
     </div>
     <label class="realtime" id="realWeatherRow" hidden><input type="checkbox" id="realWeather"> Follow real weather</label>
@@ -332,7 +332,7 @@ dialog.help ol.vd-list { margin: 0; padding-left: 22px; } ol.vd-list li { margin
 
   <details class="about">
     <summary>About</summary>
-    <p>This map was made with <a href="https://github.com/adamklatovsky/izomapa" target="_blank" rel="noopener">izomapa</a> from open data. Buildings, roads, water and greenery come from Overture Maps (OpenStreetMap, plus machine-detected building footprints), terrain from the Terrarium model. Building heights are estimates. Street lamps, parked cars, bins and many garden trees are filled in by land-use type, not at their exact positions.</p>
+    <p>This map was made with <a href="https://github.com/adamklatovsky/izomapa" target="_blank" rel="noopener">izomapa</a> from open data. Buildings, roads, water and greenery come from Overture Maps (OpenStreetMap, plus machine-detected building footprints), terrain from the Terrarium model. Building heights are measured from satellite imagery by Google Open Buildings (about 4 m resolution), so they are approximate. Street lamps, parked cars, bins and many garden trees are filled in by land-use type, not at their exact positions.</p>
     <p><strong>What is isometric?</strong><br>A view from above at an angle, without perspective: lines don't converge into the distance and things keep their real size however far away they are. A house at the edge of the map is as big as one in the middle. Anyone who spent hours with SimCity and similar city builders in the late 90s will know the style.</p>
   </details>
 </aside>
@@ -380,7 +380,7 @@ dialog.help ol.vd-list { margin: 0; padding-left: 22px; } ol.vd-list li { margin
     <li><b>Share</b> <span class="ico-inline"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v11M8 7l4-4 4 4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"/><path d="M8 10H5v11h14V10h-3" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"/></svg></span> copies a link to exactly what you see, including season and time of day.</li>
   </ul>
   <p class="muted">Made with <a href="https://github.com/adamklatovsky/izomapa" target="_blank" rel="noopener">izomapa</a> by <a href="https://www.adamklatovsky.cz/" target="_blank" rel="noopener">Adam Klatovský</a> (original map: <a href="https://izomapa.fun" target="_blank" rel="noopener">isometric Liberec</a>).<br>
-  Map data © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors (ODbL) and <a href="https://overturemaps.org/" target="_blank" rel="noopener">Overture Maps</a> (incl. Microsoft and Google building footprints), terrain Terrarium (AWS Open Data){{MHD_ZDROJ}}{{VITR_ZDROJ}}{{LETADLA_ZDROJ}}{{DOPRAVA_ZDROJ}}.</p>
+  Map data © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors (ODbL) and <a href="https://overturemaps.org/" target="_blank" rel="noopener">Overture Maps</a> (incl. Microsoft and Google building footprints), building heights from <a href="https://sites.research.google/gr/open-buildings/temporal/" target="_blank" rel="noopener">Google Open Buildings 2.5D Temporal</a> (CC BY 4.0), terrain Terrarium (AWS Open Data){{MHD_ZDROJ}}{{VITR_ZDROJ}}{{LETADLA_ZDROJ}}{{DOPRAVA_ZDROJ}}.</p>
 </dialog>
 <dialog class="help plocha" id="plochaDlg" aria-labelledby="plochaTitle">
   <button class="px-btn close" id="plochaClose" type="button" aria-label="Close">×</button>
@@ -392,10 +392,9 @@ dialog.help ol.vd-list { margin: 0; padding-left: 22px; } ol.vd-list li { margin
   <div class="pl-os" data-os="pc"><h4>Computer (Chrome, Edge)</h4><ol><li>Click the <b>Install</b> icon at the right of the address bar.</li><li>Or in the <b>⋮</b> menu choose <b>Cast, save and share → Install page as app</b>.</li></ol><p>Safari on Mac: <b>File → Add to Dock</b>.</p></div>
 </dialog>
 <nav class="mbar" id="mbar" aria-label="Quick controls">
-  <button class="px-btn" type="button" data-s="spring">Spring</button>
-  <button class="px-btn" type="button" data-s="summer">Summer</button>
-  <button class="px-btn" type="button" data-s="autumn">Autumn</button>
-  <button class="px-btn" type="button" data-s="winter">Winter</button>
+  <button class="px-btn" type="button" data-k="summer">Summer</button>
+  <button class="px-btn" type="button" data-k="monsoon">Monsoon</button>
+  <button class="px-btn" type="button" data-k="winter">Winter</button>
   <button class="px-btn" type="button" id="mTime">Day</button>
   <button class="px-btn" type="button" id="mShare" aria-label="Share this view"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v11M8 7l4-4 4 4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"/><path d="M8 10H5v11h14V10h-3" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"/></svg></button>
 </nav>
@@ -408,7 +407,7 @@ dialog.help ol.vd-list { margin: 0; padding-left: 22px; } ol.vd-list li { margin
   // real wind for chimney smoke; the map camera looks from the south-west, so east is right and up, north is left and up
   let realWind = null, realWeather = null, applyRealWeather = () => {};
   // model hlásí kód srážek i při 0 mm: padat smí jen to, co opravdu padá
-  const wmoWeather = (c, mm) => mm === 0 && ((c >= 51 && c <= 67) || (c >= 71 && c <= 77) || (c >= 80 && c <= 86) || c >= 95) ? 'clear' : (c >= 51 && c <= 67) || (c >= 80 && c <= 82) || c >= 95 ? 'rain' : (c >= 71 && c <= 77) || c === 85 || c === 86 ? 'snow' : c === 45 || c === 48 ? 'fog' : 'clear';
+  const wmoWeather = (c, mm) => mm === 0 && ((c >= 51 && c <= 67) || (c >= 71 && c <= 77) || (c >= 80 && c <= 86) || c >= 95) ? 'clear' : (c >= 51 && c <= 67) || (c >= 80 && c <= 82) || c >= 95 ? 'rain' : (c >= 71 && c <= 77) || c === 85 || c === 86 ? 'rain' : c === 45 || c === 48 ? 'fog' : 'clear';
   const loadWind = () => fetch(`https://api.open-meteo.com/v1/forecast?latitude=${OV.cam.lat0}&longitude=${OV.cam.lon0}&current=precipitation,wind_speed_10m,wind_direction_10m,weather_code&wind_speed_unit=ms`)
     .then((r) => r.json()).then(({ current: c }) => {
       if ({{POCASI}}) { realWeather = wmoWeather(c.weather_code, c.precipitation); applyRealWeather(); }
@@ -425,7 +424,15 @@ dialog.help ol.vd-list { margin: 0; padding-left: 22px; } ol.vd-list li { margin
   const hashTokens = (location.hash || '').slice(1).split('@')[0].split('-');
   const SEASON_TOKEN = { jaro: 'spring', leto: 'summer', podzim: 'autumn', zima: 'winter' };
   for (const t of hashTokens) { if (SEASON_TOKEN[t]) state.season = SEASON_TOKEN[t]; if (t === 'noc') state.night = 1; if (t === 'soumrak') state.night = 0.42; if (t === 'vse') state.wip = true; }
-  if (state.season === 'winter') state.weather = 'snow';
+  // Kerala seasons: Summer (Mar-May) uses the spring tiles (gulmohar and kanikonna in bloom), Monsoon (Jun-Sep) and
+  // Winter (Oct-Feb) the green summer tiles; Monsoon brings rain unless real weather is on
+  const KTILE = { summer: 'spring', monsoon: 'summer', winter: 'summer' };
+  const KTOK = { jaro: 'summer', leto: 'monsoon', zima: 'winter', podzim: 'winter' }, KREV = { summer: 'jaro', monsoon: 'leto', winter: 'zima' };
+  const kNow = () => { const m = new Date().getMonth() + 1; return m >= 3 && m <= 5 ? 'summer' : m >= 6 && m <= 9 ? 'monsoon' : 'winter'; };
+  state.kseason = kNow();
+  for (const t of hashTokens) if (KTOK[t]) state.kseason = KTOK[t];
+  state.season = KTILE[state.kseason];
+  if (state.kseason === 'monsoon' && hashTokens.some((t) => KTOK[t])) state.weather = 'rain';
   const WIP = Object.values(TILES.chunks || {}).some((c) => c.status !== 'hotovo');
 
 
@@ -533,7 +540,7 @@ dialog.help ol.vd-list { margin: 0; padding-left: 22px; } ol.vd-list li { margin
         if (w > 0 && Number.isFinite(w)) km = Math.min(Math.max(Number(w.toFixed(2)), 0.05), 10);
       }
     } catch {}
-    const sTok = S_REV[state.season] || 'leto';
+    const sTok = KREV[state.kseason] || 'zima';
     const nTok = state.night > 0.65 ? '-noc' : state.night > 0.25 ? '-soumrak' : '';
     const hash = `#${sTok}${nTok}@${Number(lat).toFixed(5)},${Number(lon).toFixed(5)},${km}`;
     return u.split('#')[0] + hash;
@@ -713,15 +720,21 @@ dialog.help ol.vd-list { margin: 0; padding-left: 22px; } ol.vd-list li { margin
     loadMini();
     applyExtras();
   }
-  const snowAllowed = () => state.season === 'autumn' || state.season === 'winter';
+  const snowAllowed = () => false;                                  // Calicut: no snow
   function setWeather(w) {
     if (w === 'snow' && !snowAllowed()) w = 'clear';
     state.weather = w;
     const sb = document.querySelector('[data-w="snow"]');
-    sb.disabled = !snowAllowed(); sb.title = snowAllowed() ? '' : 'Snow only in autumn and winter';
+    sb.disabled = true;
     document.querySelectorAll('[data-w]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.w === w)));
   }
-  document.querySelectorAll('[data-s]').forEach((b) => b.addEventListener('click', () => { if (b.dataset.s !== state.season) $('realWeather').checked = false; setSeason(b.dataset.s); }));
+  const markK = () => document.querySelectorAll('[data-k]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.k === state.kseason)));
+  function setKSeason(k) {
+    const prev = state.kseason; state.kseason = k; markK(); setSeason(KTILE[k]);
+    if (!$('realWeather').checked) { if (k === 'monsoon' && prev !== 'monsoon') setWeather('rain'); else if (prev === 'monsoon' && k !== 'monsoon' && state.weather === 'rain') setWeather('clear'); }
+  }
+  document.querySelectorAll('[data-k]').forEach((b) => b.addEventListener('click', () => setKSeason(b.dataset.k)));
+  markK();
   const saveRW = (v) => { try { localStorage.setItem('izo-realweather', v ? '1' : '0'); } catch {} };
   document.querySelectorAll('[data-w]').forEach((b) => b.addEventListener('click', () => { $('realWeather').checked = false; saveRW(false); setWeather(b.dataset.w); }));
   applyRealWeather = () => { if ($('realWeather').checked && realWeather) setWeather(realWeather); };
@@ -1748,8 +1761,8 @@ dialog.help ol.vd-list { margin: 0; padding-left: 22px; } ol.vd-list li { margin
     const o = { kid, skin: pick(P_SKIN), hair: pick(kid ? P_HAIR.slice(0, 6) : P_HAIR), shoes: pick(['#2a2a2e', '#f2f0ea', '#6b4a30', '#1d1f24', '#8a2f2f']), season };
     o.hairStyle = pick(kid ? ['short', 'long', 'bun'] : ['short', 'short', 'long', 'bun', 'long', 'bald']); if (o.hairStyle === 'bald' && o.hair !== '#9a9a9a') o.hairStyle = 'short';
     o.topC = pick(P.top); o.topC2 = pick(P.top); o.botC = pick(P.bot);
-    if (season === 'summer') { o.top = pick(['tee', 'tee', 'tee', 'dress', 'shirt', 'tank']); o.bot = o.top === 'dress' ? 'none' : pick(['shorts', 'shorts', 'jeans', 'skirt', 'trousers']); if (ch(0.15)) o.hat = { t: 'cap', c: pick(P_ACC) }; o.glasses = ch(0.3); }
-    else if (season === 'spring') { o.top = pick(['long', 'jacket', 'hoodie', 'jacket', 'tee']); o.bot = pick(['jeans', 'jeans', 'trousers', 'skirt']); if (ch(0.08)) o.hat = { t: 'cap', c: pick(P_ACC) }; }
+    if (season === 'summer' || season === 'spring') { o.top = pick(['tee', 'tee', 'tee', 'dress', 'shirt', 'tank']); o.bot = o.top === 'dress' ? 'none' : pick(['shorts', 'shorts', 'jeans', 'skirt', 'trousers']); if (ch(0.15)) o.hat = { t: 'cap', c: pick(P_ACC) }; o.glasses = ch(0.3); }
+    else if (season === 'spring_cz') { o.top = pick(['long', 'jacket', 'hoodie', 'jacket', 'tee']); o.bot = pick(['jeans', 'jeans', 'trousers', 'skirt']); if (ch(0.08)) o.hat = { t: 'cap', c: pick(P_ACC) }; }
     else if (season === 'autumn') { o.top = pick(['jacket', 'hoodie', 'coat', 'jacket', 'long']); o.bot = pick(['jeans', 'trousers', 'trousers', 'skirt']); if (ch(0.4)) o.scarf = pick(P_ACC); if (ch(0.35)) o.hat = { t: pick(['beanie', 'beanie', 'beret']), c: pick(P_ACC) }; }
     else { o.top = pick(['puffer', 'puffer', 'coat', 'coat', 'jacket']); o.bot = pick(['trousers', 'jeans', 'trousers']); o.scarf = ch(0.75) ? pick(P_ACC) : null; o.gloves = ch(0.6) ? pick(['#1d1f24', o.scarf || '#c23a2a', '#e8e4da']) : null; o.hat = ch(0.85) ? { t: pick(['beanie', 'bobble', 'bobble']), c: pick(P_ACC), c2: pick(P_ACC) } : null; o.shoes = pick(['#2a2a2e', '#4a3020', '#1d1f24']); }
     const b = R();
