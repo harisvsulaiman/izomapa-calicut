@@ -1,7 +1,7 @@
-success 2026-11-16T13:30:04Z run=43875417245
+success 2026-11-16T13:36:11Z run=43876733067
 == data.log
 terrain -2..63 m, zero 10.0, floor -42
-building 71892 37s
+building 71892 36s
 segment 5905 11s
 land_use 394 3s
 water 139 3s
