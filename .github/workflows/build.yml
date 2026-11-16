@@ -1,0 +1,152 @@
+name: build-map
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/**', 'ci/**']
+  workflow_dispatch:
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency: { group: build-map, cancel-in-progress: true }
+env:
+  PYTHONUTF8: '1'
+  PIP_PKGS: shapely pyproj numpy pillow pyarrow pandas scipy
+
+jobs:
+  source:
+    runs-on: ubuntu-latest
+    outputs: { sha: '${{ steps.s.outputs.sha }}' }
+    steps:
+      - uses: actions/checkout@v4
+      - id: s
+        name: bring in izomapa source + Calicut changes (first run only)
+        run: |
+          if [ ! -f geo.py ]; then
+            git clone -q https://github.com/adamklatovsky/izomapa /tmp/up && git -C /tmp/up checkout -q 5ec15a36b867bbabaaf5bbac0e00a4b5ffb88138
+            rsync -a --exclude .git --exclude README.md /tmp/up/ ./
+            cp /tmp/up/README.md README.izomapa.md
+            git apply ci/calicut.patch && cp ci/CALICUT.md CALICUT.md
+            git config user.name "izomapa-calicut ci"; git config user.email ci@users.noreply.github.com
+            git add -A && git commit -qm "Add izomapa (adamklatovsky/izomapa@5ec15a3) with Calicut changes" && git push -q origin HEAD:main
+          fi
+          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+  data:
+    needs: source
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: '${{ needs.source.outputs.sha }}' }
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: python -m venv .venv && .venv/bin/pip install -q $PIP_PKGS
+      - name: mesto.json
+        run: .venv/bin/python ci/mesto.py 2>&1 | tee data.log
+      - name: fetch data
+        run: .venv/bin/python fetch_data.py --vse 2>&1 | tee -a data.log
+      - name: playgrounds and chimneys (OSM, optional)
+        run: |
+          .venv/bin/python nastroje/hriste.py 2>&1 | tail -5 | tee -a data.log || true
+          .venv/bin/python nastroje/kominy.py 2>&1 | tail -5 | tee -a data.log || true
+      - run: tar -cf data.tar mesto.json assets data data_* && ls -la data.tar
+      - uses: actions/upload-artifact@v4
+        with: { name: data, path: data.tar, retention-days: 7 }
+      - if: always()
+        env: { GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}' }
+        run: sh ci/report.sh data ${{ job.status }} data.log
+
+  render:
+    needs: [source, data]
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    strategy:
+      fail-fast: false
+      matrix:
+        chunk: ['0,0', '0,1', '1,0', '0,-1']
+        variant: [summer, spring, autumn, winter, lights]
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: '${{ needs.source.outputs.sha }}' }
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - uses: actions/setup-node@v4
+        with: { node-version: '22' }
+      - uses: actions/download-artifact@v4
+        with: { name: data }
+      - run: tar -xf data.tar && rm data.tar
+      - run: |
+          python -m venv .venv && .venv/bin/pip install -q $PIP_PKGS
+          npm install --omit=dev --ignore-scripts && npx playwright install --with-deps chromium
+      - name: prep + render
+        run: |
+          c='${{ matrix.chunk }}'; v='${{ matrix.variant }}'
+          if [ "$c" = "0,0" ]; then D=data; B=build; else D=data_c$(echo $c | tr ',' '_'); B=build/c$(echo $c | tr ',' '_'); fi
+          mkdir -p build; .venv/bin/python prep.py $D $c > prep.log 2>&1 || { tail -40 prep.log; exit 1; }
+          start=$(date +%s); . .venv/bin/activate
+          ./render_chunk.sh $c $v > render.log 2>&1 || { cat render.log; tail -40 $B/render_$v.log; exit 1; }
+          echo "rendered in $(( $(date +%s) - start )) s" | tee -a render.log
+          cp $B/render_$v.log render_detail.log || true
+          tar -cf tiles.tar $B/tiles_$v
+          ls -la tiles.tar
+      - uses: actions/upload-artifact@v4
+        with: { name: 'tiles-${{ matrix.variant }}-${{ strategy.job-index }}', path: tiles.tar, retention-days: 7, compression-level: 0 }
+      - if: always()
+        env: { GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}' }
+        run: sh ci/report.sh "render_${{ matrix.variant }}_$(echo '${{ matrix.chunk }}' | tr ',' '_')" ${{ job.status }} prep.log render.log render_detail.log
+
+  site:
+    needs: [source, render]
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    environment: { name: github-pages, url: '${{ steps.deploy.outputs.page_url }}' }
+    steps:
+      - name: free disk
+        run: sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache/CodeQL; df -h /
+      - uses: actions/checkout@v4
+        with: { ref: '${{ needs.source.outputs.sha }}' }
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - uses: actions/setup-node@v4
+        with: { node-version: '22' }
+      - uses: actions/download-artifact@v4
+        with: { path: art }
+      - run: |
+          tar -xf art/data/data.tar
+          for f in art/tiles-*/tiles.tar; do tar -xf $f; rm $f; done
+          rm -rf art; du -sh build
+      - run: |
+          python -m venv .venv && .venv/bin/pip install -q $PIP_PKGS
+          npm install --omit=dev --ignore-scripts && npx playwright install --with-deps chromium
+      - name: scenes, tiles, website
+        run: |
+          . .venv/bin/activate
+          set -e
+          { for c in 0,0 0,1 1,0 0,-1; do
+              if [ "$c" = "0,0" ]; then D=data; else D=data_c$(echo $c | tr ',' '_'); fi
+              python prep.py $D $c > /dev/null
+            done
+            mkdir -p site/tiles
+            python dzi.py
+            for c in 0,1 1,0 0,-1; do python dzi.py --chunk $c; done
+            for s in summer autumn winter spring; do node render.mjs mpp=0.2 dir=build season=$s alpha=1 stromy=site/stromy > /dev/null; done
+            python compose.py summer 8 site/nahled_summer.png
+            python preview.py
+            python overlay.py
+            python set_status.py hotovo
+            python build_html.py
+            touch site/.nojekyll
+            du -sh site; find site -type f | wc -l; } 2>&1 | tee site.log
+      - name: preview to status branch
+        if: always()
+        env: { GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}' }
+        run: |
+          sh ci/report.sh site ${{ job.status }} site.log
+          [ -f site/nahled_summer.png ] && .venv/bin/python -c "
+          from PIL import Image; im=Image.open('site/nahled_summer.png'); im.thumbnail((2400,2400)); im.convert('RGB').save('nahled.jpg',quality=85)" || true
+          if [ -f nahled.jpg ]; then T=$(mktemp -d); git clone -q --depth 1 --branch status "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" $T && cp nahled.jpg $T/ && cd $T && git config user.name ci && git config user.email ci@users.noreply.github.com && git add -A && git commit -qm preview && git push -q origin status || true; fi
+      - uses: actions/upload-pages-artifact@v3
+        with: { path: site }
+      - id: deploy
+        uses: actions/deploy-pages@v4
