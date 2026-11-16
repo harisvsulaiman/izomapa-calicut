@@ -1,4 +1,4 @@
-failure 2026-11-16T13:31:00Z run=43875417245
+success 2026-11-16T13:38:52Z run=43876733067
 == prep.log
 /home/runner/work/izomapa-calicut/izomapa-calicut/prep.py:103: DeprecationWarning: The 'shapely.ops.transform()' function is deprecated. Use 'shapely.transform()' or 'shapely.transform_coordseq()' instead. See https://shapely.readthedocs.io/en/latest/manual.html#shapely.ops.transform for more details.
   t['geom'] = t.geometry.map(lambda g: transform(lambda x, y, z=None: to_local(x, y), shapely.from_wkb(g)))
@@ -16,11 +16,84 @@ failure 2026-11-16T13:31:00Z run=43875417245
   t['geom'] = t.geometry.map(lambda g: transform(lambda x, y, z=None: to_local(x, y), shapely.from_wkb(g)))
 terén 461 x 461 převýšení 17.7 m
 mostů 13 z toho lávek 4 nájezdů 14
-Traceback (most recent call last):
-  File "/home/runner/work/izomapa-calicut/izomapa-calicut/prep.py", line 887, in <module>
-    addr_pts = list(addr.geom)
-                    ^^^^^^^^^
-  File "/home/runner/work/izomapa-calicut/izomapa-calicut/.venv/lib/python3.12/site-packages/pandas/core/generic.py", line 6434, in __getattr__
-    return object.__getattribute__(self, name)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-AttributeError: 'DataFrame' object has no attribute 'geom'
+dominant napárováno na budovy 0
+budov 1006 z toho od sousedů 72 komínů 541
+{'bench': 0, 'lamp': 2286, 'bin': 0, 'recycling': 0, 'shelter': 34, 'tower': 0, 'pole': 0, 'wheelie': 422} aut 1340 {'fence': 0, 'hedge': 0, 'wall': 0, 'power': 0, 'lift': 0}
+stromů nad vozovkou odstraněno 120
+stromů 5488
+skrytých stromů na hřbitovech 0
+hrobů 0 soch 0
+textura summer
+textura spring
+textura autumn
+textura winter
+napojení doprostřed kusu rozděleno 86
+jednosměrných úseků pro auta 205 kruhových objezdů 3
+železničních přejezdů 0
+vjezdů na kruhový objezd 15
+hotovo
+== render.log
+180
+HOTOVO 0,0
+rendered in 42 s
+== render_detail.log
+dlaždice 12,6 0.226 s
+dlaždice 13,6 0.197 s
+dlaždice 14,6 0.175 s
+dlaždice 15,6 0.169 s
+dlaždice 16,6 0.167 s
+dlaždice 17,6 0.13 s
+dlaždice 0,7 0.168 s
+dlaždice 1,7 0.17 s
+dlaždice 2,7 0.168 s
+dlaždice 3,7 0.17 s
+dlaždice 4,7 0.169 s
+dlaždice 5,7 0.179 s
+dlaždice 6,7 0.208 s
+dlaždice 7,7 0.214 s
+dlaždice 8,7 0.226 s
+dlaždice 9,7 0.233 s
+dlaždice 10,7 0.226 s
+dlaždice 11,7 0.192 s
+dlaždice 12,7 0.171 s
+dlaždice 13,7 0.169 s
+dlaždice 14,7 0.169 s
+dlaždice 15,7 0.179 s
+dlaždice 16,7 0.168 s
+dlaždice 17,7 0.129 s
+dlaždice 0,8 0.17 s
+dlaždice 1,8 0.171 s
+dlaždice 2,8 0.168 s
+dlaždice 3,8 0.168 s
+dlaždice 4,8 0.168 s
+dlaždice 5,8 0.168 s
+dlaždice 6,8 0.169 s
+dlaždice 7,8 0.178 s
+dlaždice 8,8 0.191 s
+dlaždice 9,8 0.185 s
+dlaždice 10,8 0.172 s
+dlaždice 11,8 0.175 s
+dlaždice 12,8 0.169 s
+dlaždice 13,8 0.171 s
+dlaždice 14,8 0.167 s
+dlaždice 15,8 0.169 s
+dlaždice 16,8 0.169 s
+dlaždice 17,8 0.13 s
+dlaždice 0,9 0.169 s
+dlaždice 1,9 0.169 s
+dlaždice 2,9 0.169 s
+dlaždice 3,9 0.17 s
+dlaždice 4,9 0.169 s
+dlaždice 5,9 0.169 s
+dlaždice 6,9 0.168 s
+dlaždice 7,9 0.169 s
+dlaždice 8,9 0.169 s
+dlaždice 9,9 0.17 s
+dlaždice 10,9 0.169 s
+dlaždice 11,9 0.169 s
+dlaždice 12,9 0.17 s
+dlaždice 13,9 0.169 s
+dlaždice 14,9 0.17 s
+dlaždice 15,9 0.169 s
+dlaždice 16,9 0.17 s
+dlaždice 17,9 0.128 s
