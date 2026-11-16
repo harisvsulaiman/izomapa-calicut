@@ -1,4 +1,4 @@
-success 2026-11-16T14:08:31Z run=43881466774
+success 2026-11-16T19:25:00Z run=43936499762
 == prep.log
 /home/runner/work/izomapa-calicut/izomapa-calicut/prep.py:103: DeprecationWarning: The 'shapely.ops.transform()' function is deprecated. Use 'shapely.transform()' or 'shapely.transform_coordseq()' instead. See https://shapely.readthedocs.io/en/latest/manual.html#shapely.ops.transform for more details.
   t['geom'] = t.geometry.map(lambda g: transform(lambda x, y, z=None: to_local(x, y), shapely.from_wkb(g)))
@@ -14,13 +14,13 @@ success 2026-11-16T14:08:31Z run=43881466774
   t['geom'] = t.geometry.map(lambda g: transform(lambda x, y, z=None: to_local(x, y), shapely.from_wkb(g)))
 /home/runner/work/izomapa-calicut/izomapa-calicut/prep.py:103: DeprecationWarning: The 'shapely.ops.transform()' function is deprecated. Use 'shapely.transform()' or 'shapely.transform_coordseq()' instead. See https://shapely.readthedocs.io/en/latest/manual.html#shapely.ops.transform for more details.
   t['geom'] = t.geometry.map(lambda g: transform(lambda x, y, z=None: to_local(x, y), shapely.from_wkb(g)))
-terén 461 x 461 převýšení 27.6 m
+terén 461 x 461 převýšení 23.6 m
 mostů 5 z toho lávek 2 nájezdů 10
 dominant napárováno na budovy 0
-budov 10073 z toho od sousedů 389 komínů 8573
-{'bench': 0, 'lamp': 1955, 'bin': 0, 'recycling': 0, 'shelter': 11, 'tower': 0, 'pole': 0, 'wheelie': 2143} aut 701 {'fence': 0, 'hedge': 0, 'wall': 0, 'power': 0, 'lift': 0, 'pipe': 0}
-stromů nad vozovkou odstraněno 153
-stromů 8263
+budov 10644 z toho od sousedů 959 komínů 8577
+{'bench': 0, 'lamp': 1955, 'bin': 0, 'recycling': 0, 'shelter': 11, 'tower': 0, 'pole': 0, 'wheelie': 2142} aut 701 {'fence': 0, 'hedge': 0, 'wall': 0, 'power': 0, 'lift': 0}
+stromů nad vozovkou odstraněno 156
+stromů 8733
 skrytých stromů na hřbitovech 0
 hrobů 0 soch 0
 textura summer
@@ -35,65 +35,65 @@ hotovo
 == render.log
 180
 HOTOVO 0,1
-rendered in 56 s
+rendered in 57 s
 == render_detail.log
-dlaždice 12,6 0.355 s
-dlaždice 13,6 0.274 s
-dlaždice 14,6 0.231 s
-dlaždice 15,6 0.217 s
-dlaždice 16,6 0.217 s
-dlaždice 17,6 0.183 s
-dlaždice 0,7 0.217 s
-dlaždice 1,7 0.225 s
-dlaždice 2,7 0.216 s
-dlaždice 3,7 0.216 s
-dlaždice 4,7 0.216 s
-dlaždice 5,7 0.24 s
-dlaždice 6,7 0.306 s
-dlaždice 7,7 0.363 s
-dlaždice 8,7 0.376 s
-dlaždice 9,7 0.361 s
-dlaždice 10,7 0.346 s
-dlaždice 11,7 0.276 s
-dlaždice 12,7 0.227 s
-dlaždice 13,7 0.217 s
-dlaždice 14,7 0.218 s
-dlaždice 15,7 0.22 s
-dlaždice 16,7 0.218 s
-dlaždice 17,7 0.184 s
-dlaždice 0,8 0.218 s
-dlaždice 1,8 0.219 s
-dlaždice 2,8 0.218 s
-dlaždice 3,8 0.225 s
-dlaždice 4,8 0.218 s
-dlaždice 5,8 0.219 s
-dlaždice 6,8 0.217 s
-dlaždice 7,8 0.25 s
-dlaždice 8,8 0.316 s
-dlaždice 9,8 0.286 s
-dlaždice 10,8 0.236 s
-dlaždice 11,8 0.219 s
-dlaždice 12,8 0.22 s
-dlaždice 13,8 0.219 s
-dlaždice 14,8 0.221 s
-dlaždice 15,8 0.219 s
+dlaždice 12,6 0.35 s
+dlaždice 13,6 0.277 s
+dlaždice 14,6 0.23 s
+dlaždice 15,6 0.224 s
+dlaždice 16,6 0.226 s
+dlaždice 17,6 0.189 s
+dlaždice 0,7 0.223 s
+dlaždice 1,7 0.229 s
+dlaždice 2,7 0.225 s
+dlaždice 3,7 0.228 s
+dlaždice 4,7 0.222 s
+dlaždice 5,7 0.246 s
+dlaždice 6,7 0.296 s
+dlaždice 7,7 0.35 s
+dlaždice 8,7 0.358 s
+dlaždice 9,7 0.347 s
+dlaždice 10,7 0.327 s
+dlaždice 11,7 0.282 s
+dlaždice 12,7 0.233 s
+dlaždice 13,7 0.223 s
+dlaždice 14,7 0.227 s
+dlaždice 15,7 0.227 s
+dlaždice 16,7 0.223 s
+dlaždice 17,7 0.188 s
+dlaždice 0,8 0.222 s
+dlaždice 1,8 0.226 s
+dlaždice 2,8 0.224 s
+dlaždice 3,8 0.223 s
+dlaždice 4,8 0.222 s
+dlaždice 5,8 0.225 s
+dlaždice 6,8 0.223 s
+dlaždice 7,8 0.249 s
+dlaždice 8,8 0.304 s
+dlaždice 9,8 0.28 s
+dlaždice 10,8 0.234 s
+dlaždice 11,8 0.221 s
+dlaždice 12,8 0.223 s
+dlaždice 13,8 0.223 s
+dlaždice 14,8 0.225 s
+dlaždice 15,8 0.223 s
 dlaždice 16,8 0.224 s
-dlaždice 17,8 0.182 s
-dlaždice 0,9 0.216 s
-dlaždice 1,9 0.221 s
-dlaždice 2,9 0.219 s
-dlaždice 3,9 0.219 s
-dlaždice 4,9 0.217 s
-dlaždice 5,9 0.218 s
-dlaždice 6,9 0.219 s
-dlaždice 7,9 0.221 s
-dlaždice 8,9 0.225 s
-dlaždice 9,9 0.22 s
-dlaždice 10,9 0.22 s
-dlaždice 11,9 0.218 s
-dlaždice 12,9 0.22 s
-dlaždice 13,9 0.22 s
-dlaždice 14,9 0.219 s
-dlaždice 15,9 0.218 s
-dlaždice 16,9 0.22 s
-dlaždice 17,9 0.185 s
+dlaždice 17,8 0.188 s
+dlaždice 0,9 0.223 s
+dlaždice 1,9 0.222 s
+dlaždice 2,9 0.224 s
+dlaždice 3,9 0.225 s
+dlaždice 4,9 0.223 s
+dlaždice 5,9 0.223 s
+dlaždice 6,9 0.224 s
+dlaždice 7,9 0.225 s
+dlaždice 8,9 0.222 s
+dlaždice 9,9 0.221 s
+dlaždice 10,9 0.225 s
+dlaždice 11,9 0.225 s
+dlaždice 12,9 0.222 s
+dlaždice 13,9 0.221 s
+dlaždice 14,9 0.226 s
+dlaždice 15,9 0.224 s
+dlaždice 16,9 0.228 s
+dlaždice 17,9 0.191 s
