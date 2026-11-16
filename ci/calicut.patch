@@ -1,0 +1,72 @@
+diff --git a/CLAUDE.md b/CLAUDE.md
+index 0518c1c..dec9243 100644
+--- a/CLAUDE.md
++++ b/CLAUDE.md
+@@ -1,3 +1,8 @@
++> **Calicut build (local note):** this checkout is set up for Calicut / Kozhikode, Kerala, India. The user speaks
++> English: communicate in English, not Czech. Follow `CALICUT.md` first. Outside Czechia there are no ČÚZK data
++> (laser heights, orthophoto, ZABAGED fields, RÚIAN): `postav.sh` skips those steps when `mesto.json` has
++> `"zeme": "in"`. Building heights come from Overture/OSM only. Never trace from Google Maps screenshots.
++
+ # izomapa – návod pro AI agenta
+ 
+ Uživatel chce izometrickou pixel-art mapu svého města („udělej mi izometrickou mapu Chrastavy“). Předloha je
+diff --git a/novy_mesto.py b/novy_mesto.py
+index fb3cb69..ed2c9e2 100644
+--- a/novy_mesto.py
++++ b/novy_mesto.py
+@@ -22,7 +22,8 @@ NAZEV = args[0]
+ import os
+ if os.path.exists('mesto.json') and '--prepsat' not in args: sys.exit('mesto.json už existuje (ruční texty a MHD by se ztratily). Pro přepsání přidej --prepsat; starý soubor se uloží jako mesto.json.bak.')
+ opt = lambda k, d=None: args[args.index(k) + 1] if k in args else d
+-DOTAZ = opt('--dotaz', f'{NAZEV}, Česko')
++ZEME = opt('--zeme', 'cz').lower()           # kód země pro Nominatim (cz, in, …); mimo Česko anglické texty a bez dat ČÚZK
++DOTAZ = opt('--dotaz', f'{NAZEV}, Česko' if ZEME == 'cz' else NAZEV)
+ MAX = int(opt('--max', 0))
+ HALF = 1150.0
+ UA = {'User-Agent': 'izomapa/1.0 (https://github.com/adamklatovsky/izomapa)'}
+@@ -33,7 +34,7 @@ def get(url):
+ 
+ 
+ # 1) hranice obce
+-q = urllib.parse.urlencode({'q': DOTAZ, 'format': 'json', 'polygon_geojson': 1, 'limit': 8, 'countrycodes': 'cz'})
++q = urllib.parse.urlencode({'q': DOTAZ, 'format': 'json', 'polygon_geojson': 1, 'limit': 8, 'countrycodes': ZEME})
+ res = json.loads(get('https://nominatim.openstreetmap.org/search?' + q))
+ res = [r for r in res if r.get('geojson', {}).get('type') in ('Polygon', 'MultiPolygon')]
+ if not res: sys.exit(f'Hranici „{DOTAZ}“ jsem nenašel. Zkus --dotaz s přesnějším názvem obce.')
+@@ -118,13 +119,15 @@ def rod(nazev):
+     return 'ý'
+ 
+ 
+-adj = f'Izometrick{rod(NAZEV)}'
++adj = f'Izometrick{rod(NAZEV)}' if ZEME == 'cz' else 'Isometric'
+ mesto = {
+     'nazev': NAZEV,
++    'zeme': ZEME,
+     'titulek': f'{adj} {NAZEV}',
+     'h1': [adj, NAZEV],
+-    'podtitul': f'{NAZEV} z otevřených dat, ve stylu SimCity 2000.',
+-    'popis': f'Izometrická pixel-art mapa: {NAZEV} ve stylu SimCity 2000. Roční období, den a noc, počasí a příběhy míst.',
++    'podtitul': f'{NAZEV} z otevřených dat, ve stylu SimCity 2000.' if ZEME == 'cz' else f'{NAZEV} from open data, in the style of SimCity 2000.',
++    'popis': (f'Izometrická pixel-art mapa: {NAZEV} ve stylu SimCity 2000. Roční období, den a noc, počasí a příběhy míst.' if ZEME == 'cz'
++              else f'An isometric pixel-art map of {NAZEV} in the style of SimCity 2000. Day and night, weather and stories of places.'),
+     'url': '',
+     'stred': [round(lon0, 6), round(lat0, 6)],
+     'polovina': HALF,
+diff --git a/postav.sh b/postav.sh
+index 1ebe0a0..1bdbd15 100755
+--- a/postav.sh
++++ b/postav.sh
+@@ -12,9 +12,12 @@ dir() { if [ "$1" = "0,0" ]; then echo data; else echo data_c$(echo $1 | tr ','
+ 
+ if [ "$1" != render ]; then
+   python fetch_data.py --vse                                  # Overture (OSM) + terén, místa, části obce
++  ZEME=$(python -c "import json; print(json.load(open('mesto.json')).get('zeme', 'cz'))")
++  if [ "$ZEME" = cz ]; then                                   # data ČÚZK jen pro Česko; jinde výšky z OSM/Overture a les z dat
+   [ -f assets/dmp_vysky.json ] || { python dmp_fetch.py && python dmp_vysky.py; }          # výšky budov z laseru ČÚZK
+   [ -f build/les_maska.png ] || python nastroje/les.py                                     # les podle ortofota
+   [ -f assets/zabaged.json ] || { python nastroje/zabaged.py && python nastroje/pole.py; } # pole a louky
++  else echo "zeme=$ZEME: bez laserových výšek, ortofota a polí ČÚZK"; fi
+   [ -f assets/hriste.json ] || python nastroje/hriste.py || true                          # dětská a workoutová hřiště z OSM
+ fi
+ if [ "$1" != render ]; then rm -rf site/tiles site/tiles.json; fi   # celá stavba kreslí vše znovu; ./postav.sh render kreslí jen změněné čtverce
