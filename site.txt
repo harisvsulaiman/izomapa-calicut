@@ -1,4 +1,4 @@
-success 2026-11-16T13:56:31Z run=43876733067
+success 2026-11-16T14:27:46Z run=43881466774
 == site.log
 /home/runner/work/izomapa-calicut/izomapa-calicut/prep.py:103: DeprecationWarning: The 'shapely.ops.transform()' function is deprecated. Use 'shapely.transform()' or 'shapely.transform_coordseq()' instead. See https://shapely.readthedocs.io/en/latest/manual.html#shapely.ops.transform for more details.
   t['geom'] = t.geometry.map(lambda g: transform(lambda x, y, z=None: to_local(x, y), shapely.from_wkb(g)))
@@ -18,35 +18,35 @@ success 2026-11-16T13:56:31Z run=43876733067
   t['geom'] = t.geometry.map(lambda g: transform(lambda x, y, z=None: to_local(x, y), shapely.from_wkb(g)))
 /home/runner/work/izomapa-calicut/izomapa-calicut/prep.py:103: DeprecationWarning: The 'shapely.ops.transform()' function is deprecated. Use 'shapely.transform()' or 'shapely.transform_coordseq()' instead. See https://shapely.readthedocs.io/en/latest/manual.html#shapely.ops.transform for more details.
   t['geom'] = t.geometry.map(lambda g: transform(lambda x, y, z=None: to_local(x, y), shapely.from_wkb(g)))
-c0_0 autumn 17596 x 9475 souborů 80 MB 15.7
-c0_0 winter 17596 x 9475 souborů 80 MB 15.7
-c0_0 spring 17596 x 9475 souborů 80 MB 16.0
-c0_0 summer 17596 x 9475 souborů 80 MB 15.2
-c0_0 lights 17596 x 9475 souborů 80 MB 3.7
-c0_1 autumn 17671 x 9499 souborů 80 MB 17.5
-c0_1 winter 17671 x 9499 souborů 80 MB 17.7
-c0_1 spring 17671 x 9499 souborů 80 MB 17.7
-c0_1 summer 17671 x 9499 souborů 80 MB 17.0
-c0_1 lights 17671 x 9499 souborů 80 MB 3.2
-c1_0 autumn 17596 x 9420 souborů 80 MB 17.3
-c1_0 winter 17596 x 9420 souborů 80 MB 17.2
-c1_0 spring 17596 x 9420 souborů 80 MB 18.0
-c1_0 summer 17596 x 9420 souborů 80 MB 16.3
-c1_0 lights 17596 x 9420 souborů 80 MB 3.0
-c0_-1 autumn 17595 x 9425 souborů 80 MB 11.8
-c0_-1 winter 17595 x 9425 souborů 80 MB 11.4
-c0_-1 spring 17595 x 9425 souborů 80 MB 11.3
-c0_-1 summer 17595 x 9425 souborů 80 MB 10.4
-c0_-1 lights 17595 x 9425 souborů 80 MB 2.2
+c0_0 autumn 17670 x 9475 souborů 80 MB 18.6
+c0_0 winter 17670 x 9475 souborů 80 MB 18.0
+c0_0 spring 17670 x 9475 souborů 80 MB 18.7
+c0_0 summer 17670 x 9475 souborů 80 MB 18.5
+c0_0 lights 17670 x 9475 souborů 80 MB 3.9
+c0_1 autumn 17671 x 9499 souborů 80 MB 20.0
+c0_1 winter 17671 x 9499 souborů 80 MB 20.0
+c0_1 spring 17671 x 9499 souborů 80 MB 20.4
+c0_1 summer 17671 x 9499 souborů 80 MB 19.7
+c0_1 lights 17671 x 9499 souborů 80 MB 3.6
+c1_0 autumn 17596 x 9420 souborů 80 MB 20.1
+c1_0 winter 17596 x 9420 souborů 80 MB 20.5
+c1_0 spring 17596 x 9420 souborů 80 MB 20.6
+c1_0 summer 17596 x 9420 souborů 80 MB 19.8
+c1_0 lights 17596 x 9420 souborů 80 MB 3.5
+c0_-1 autumn 17595 x 9425 souborů 80 MB 14.2
+c0_-1 winter 17595 x 9425 souborů 80 MB 14.2
+c0_-1 spring 17595 x 9425 souborů 80 MB 14.5
+c0_-1 summer 17595 x 9425 souborů 80 MB 14.1
+c0_-1 lights 17595 x 9425 souborů 80 MB 2.4
 site/nahled_summer.png (4233, 2204) čtverce [(0, 1), (1, 0), (0, 0), (0, -1)] počátek -3385.94559672906 1786.79585002379
-site/preview/summer.webp (2117, 1102) čtverce [(0, 1), (1, 0), (0, 0), (0, -1)] počátek -3385.94559672906 1786.79585002379
-site/preview/autumn.webp (2117, 1102) čtverce [(0, 1), (1, 0), (0, 0), (0, -1)] počátek -3385.94559672906 1786.79585002379
-site/preview/spring.webp (2117, 1102) čtverce [(0, 1), (1, 0), (0, 0), (0, -1)] počátek -3385.94559672906 1786.79585002379
 site/preview/winter.webp (2117, 1102) čtverce [(0, 1), (1, 0), (0, 0), (0, -1)] počátek -3385.94559672906 1786.79585002379
-spring 2400 1249 347 kB
-summer 2400 1249 325 kB
-autumn 2400 1249 320 kB
-winter 2400 1249 394 kB
+site/preview/summer.webp (2117, 1102) čtverce [(0, 1), (1, 0), (0, 0), (0, -1)] počátek -3385.94559672906 1786.79585002379
+site/preview/spring.webp (2117, 1102) čtverce [(0, 1), (1, 0), (0, 0), (0, -1)] počátek -3385.94559672906 1786.79585002379
+site/preview/autumn.webp (2117, 1102) čtverce [(0, 1), (1, 0), (0, 0), (0, -1)] počátek -3385.94559672906 1786.79585002379
+spring 2400 1249 457 kB
+summer 2400 1249 442 kB
+autumn 2400 1249 440 kB
+winter 2400 1249 460 kB
 /home/runner/work/izomapa-calicut/izomapa-calicut/overlay.py:66: DeprecationWarning: The 'shapely.ops.transform()' function is deprecated. Use 'shapely.transform()' or 'shapely.transform_coordseq()' instead. See https://shapely.readthedocs.io/en/latest/manual.html#shapely.ops.transform for more details.
   g = shapely.ops.transform(lambda x, y, z=None: to_local(x, y), g)
 /home/runner/work/izomapa-calicut/izomapa-calicut/overlay.py:66: DeprecationWarning: The 'shapely.ops.transform()' function is deprecated. Use 'shapely.transform()' or 'shapely.transform_coordseq()' instead. See https://shapely.readthedocs.io/en/latest/manual.html#shapely.ops.transform for more details.
@@ -54,9 +54,9 @@ winter 2400 1249 394 kB
 /home/runner/work/izomapa-calicut/izomapa-calicut/overlay.py:79: DeprecationWarning: The 'shapely.ops.transform()' function is deprecated. Use 'shapely.transform()' or 'shapely.transform_coordseq()' instead. See https://shapely.readthedocs.io/en/latest/manual.html#shapely.ops.transform for more details.
   tr = lambda g: shapely.ops.transform(lambda x, y, z=None: to_local(x, y), g)
 čtvrtí 0
-čtverců 4 budov 2407 adres 619 ulic 178 míst 0 sousedů 0 kB 71
+čtverců 4 budov 39337 adres 1135 ulic 178 míst 0 sousedů 0 kB 71
 stav hotovo čtverců 4
-site/index.html 234380
+site/index.html 235344
 site/og.jpg
-264M	site
+324M	site
 1637
