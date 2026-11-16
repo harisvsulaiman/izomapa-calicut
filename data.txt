@@ -1,23 +1,17 @@
-success 2026-11-16T13:36:11Z run=43876733067
+cancelled 2026-11-16T14:01:41Z run=43880911356
 == data.log
 terrain -2..63 m, zero 10.0, floor -42
-building 71892 36s
-segment 5905 11s
+building 71892 29s
+segment 5905 9s
 land_use 394 3s
-water 139 3s
-land_cover 29 12s
-infrastructure 508 2s
-land 36 4s
-address 0 5s
+water 139 2s
+land_cover 29 9s
+infrastructure 508 1s
+land 36 3s
+address 0 4s
 čtverec (0, -1) -> data_c0_-1
 čtverec (0, 0) -> data
 čtverec (0, 1) -> data_c0_1
 čtverec (1, 0) -> data_c1_0
 míst 7955
 částí obcí 8
-dětská 10 workout 0 prvků 0
-    t = subprocess.run(['curl', '-s', '-f', '-m', '120', '-A', 'izomapa-tools/1.0', '--data-urlencode', f'data={q}', 'https://overpass-api.de/api/interpreter'],
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/subprocess.py", line 571, in run
-    raise CalledProcessError(retcode, process.args,
-subprocess.CalledProcessError: Command '['curl', '-s', '-f', '-m', '120', '-A', 'izomapa-tools/1.0', '--data-urlencode', 'data=[out:json][timeout:60];(nwr["man_made"="chimney"](11.220890281621358,75.7695464245026,11.285109718378642,75.81351972795169);nwr["tower:type"~"^(stack|cooling|communication|observation)$"](11.220890281621358,75.7695464245026,11.285109718378642,75.81351972795169);nwr["man_made"="storage_tank"](11.220890281621358,75.7695464245026,11.285109718378642,75.81351972795169););out tags center bb;', 'https://overpass-api.de/api/interpreter']' returned non-zero exit status 22.
