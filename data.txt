@@ -1,1 +1,44 @@
-cancelled 2026-11-16T19:10:27Z run=43936427508
+success 2026-11-16T19:21:43Z run=43936499762
+== data.log
+terrain -2..89 m, zero 14.0, floor -46
+building 143203 34s
+segment 11185 11s
+land_use 646 3s
+water 291 3s
+land_cover 39 11s
+infrastructure 747 2s
+land 67 3s
+address 0 5s
+čtverec (0, -1) -> data_c0_-1
+čtverec (0, 0) -> data
+čtverec (0, 1) -> data_c0_1
+čtverec (0, 2) -> data_c0_2
+čtverec (1, -1) -> data_c1_-1
+čtverec (1, 0) -> data_c1_0
+čtverec (1, 1) -> data_c1_1
+čtverec (1, 2) -> data_c1_2
+čtverec (2, -1) -> data_c2_-1
+čtverec (2, 0) -> data_c2_0
+čtverec (2, 1) -> data_c2_1
+čtverec (3, -1) -> data_c3_-1
+čtverec (3, 0) -> data_c3_0
+míst 10480
+částí obcí 9
+Overpass nedostupný, zkus to později
+    t = subprocess.run(['curl', '-s', '-f', '-m', '120', '-A', 'izomapa-tools/1.0', '--data-urlencode', f'data={q}', 'https://overpass-api.de/api/interpreter'],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['curl', '-s', '-f', '-m', '120', '-A', 'izomapa-tools/1.0', '--data-urlencode', 'data=[out:json][timeout:60];(nwr["man_made"="chimney"](11.220890281621358,75.7695464245026,11.305910268236657,75.8556520328602);nwr["tower:type"~"^(stack|cooling|communication|observation)$"](11.220890281621358,75.7695464245026,11.305910268236657,75.8556520328602);nwr["man_made"="storage_tank"](11.220890281621358,75.7695464245026,11.305910268236657,75.8556520328602););out tags center bb;', 'https://overpass-api.de/api/interpreter']' returned non-zero exit status 7.
+== heights.log
+143203 buildings, bbox 75.7665,11.2179 .. 75.8586,11.3090
+s2 cells ['3b'] manifests 32 ['v1/manifests/3b_EPSG_32642_2016_06_30.json', 'v1/manifests/3b_EPSG_32642_2017_06_30.json', 'v1/manifests/3b_EPSG_32642_2018_06_30.json', 'v1/manifests/3b_EPSG_32642_2019_06_30.json', 'v1/manifests/3b_EPSG_32642_2020_06_30.json', 'v1/manifests/3b_EPSG_32642_2021_06_30.json']
+using 4 manifests for 2023
+tiles over the map: 2
+bands 3 ('building_fractional_count', 'building_height', 'building_presence') ('float32', 'float32', 'float32') scales (1.0, 1.0, 1.0) offsets (0.0, 0.0, 0.0) nodata -99.0 res (0.5, 0.5)
+height band 2
+tile 0: 6250x6250, values min 0.00 p50 0.00 p99 8.59 max 93.78, buildings 104880
+1/2 tiles, 104866 buildings measured
+tile 1: 6250x6250, values min 0.00 p50 0.00 p99 7.12 max 94.56, buildings 38446
+2/2 tiles, 143203 buildings measured
+heights for 104380 of 143203 buildings; median 4.1 m, p90 6.0 m, max 91.2 m; over 20 m: 211 over 40 m: 51
